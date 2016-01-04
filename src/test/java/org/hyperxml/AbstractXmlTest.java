@@ -26,13 +26,12 @@ import javax.xml.transform.stream.StreamResult;
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.XMLTestCase;
 import org.custommonkey.xmlunit.XMLUnit;
-import org.hyperxml.Xml.HyperXmlException;
 import org.xml.sax.ContentHandler;
 
 /**
  * @author krizzdewizz
  */
-public class AbstractXmlTest extends XMLTestCase {
+abstract public class AbstractXmlTest extends XMLTestCase {
 	public static ContentHandler createContentHandler(Writer out) {
 		try {
 			SAXTransformerFactory f = (SAXTransformerFactory) TransformerFactory.newInstance();
@@ -42,7 +41,7 @@ public class AbstractXmlTest extends XMLTestCase {
 
 			return h;
 		} catch (Exception e) {
-			throw HyperXmlException.wrap(e);
+			throw Xml.HyperXmlException.wrap(e);
 		}
 	}
 
