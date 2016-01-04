@@ -33,39 +33,39 @@ import org.xml.sax.ContentHandler;
  * @author krizzdewizz
  */
 public class AbstractXmlTest extends XMLTestCase {
-  public static ContentHandler createContentHandler(Writer out) {
-    try {
-      SAXTransformerFactory f = (SAXTransformerFactory) TransformerFactory.newInstance();
-      TransformerHandler h = f.newTransformerHandler();
+	public static ContentHandler createContentHandler(Writer out) {
+		try {
+			SAXTransformerFactory f = (SAXTransformerFactory) TransformerFactory.newInstance();
+			TransformerHandler h = f.newTransformerHandler();
 
-      h.setResult(new StreamResult(out));
+			h.setResult(new StreamResult(out));
 
-      return h;
-    } catch (Exception e) {
-      throw HyperXmlException.wrap(e);
-    }
-  }
+			return h;
+		} catch (Exception e) {
+			throw HyperXmlException.wrap(e);
+		}
+	}
 
-  protected static String createXmlContent(Xml<?> xml) {
-    StringWriter out = new StringWriter();
-    ContentHandler handler = createContentHandler(out);
-    xml.setContentHandler(handler);
-    xml.build();
-    return out.toString();
-  }
+	protected static String createXmlContent(Xml<?> xml) {
+		StringWriter out = new StringWriter();
+		ContentHandler handler = createContentHandler(out);
+		xml.setContentHandler(handler);
+		xml.build();
+		return out.toString();
+	}
 
-  public static void myAssertXMLEqual(String expected, String actual) throws Exception {
-    boolean oldIgnoreWhitespace = XMLUnit.getIgnoreWhitespace();
-    try {
-      XMLUnit.setIgnoreWhitespace(true);
+	public static void myAssertXMLEqual(String expected, String actual) throws Exception {
+		boolean oldIgnoreWhitespace = XMLUnit.getIgnoreWhitespace();
+		try {
+			XMLUnit.setIgnoreWhitespace(true);
 
-      Diff myDiff = new Diff(expected, actual);
-      if (!myDiff.similar()) {
-        assertEquals(myDiff.toString(), "expected=" + expected, "actual=" + actual);
-      }
-    } finally {
-      XMLUnit.setIgnoreAttributeOrder(oldIgnoreWhitespace);
-    }
-  }
+			Diff myDiff = new Diff(expected, actual);
+			if (!myDiff.similar()) {
+				assertEquals(myDiff.toString(), "expected=" + expected, "actual=" + actual);
+			}
+		} finally {
+			XMLUnit.setIgnoreAttributeOrder(oldIgnoreWhitespace);
+		}
+	}
 
 }

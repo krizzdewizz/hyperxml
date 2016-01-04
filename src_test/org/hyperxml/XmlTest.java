@@ -22,316 +22,310 @@ import java.io.StringWriter;
  */
 public class XmlTest extends AbstractXmlTest {
 
-  private abstract static class MyXml extends Xml<MyXml> {
-  }
+	private abstract static class MyXml extends Xml<MyXml> {
+	}
 
-  public void testSingleDocElemNs() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $$("x", "xml", xmlns("x"), "http://com.acme", $);
-      }
-    };
+	public void testSingleDocElemNs() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$$("x", "xml", xmlns("x"), "http://com.acme", $);
+			}
+		};
 
-    String result = createXmlContent(xml);
-    myAssertXMLEqual("<x:xml xmlns:x='http://com.acme'></x:xml>", result);
-  }
+		String result = createXmlContent(xml);
+		myAssertXMLEqual("<x:xml xmlns:x='http://com.acme'></x:xml>", result);
+	}
 
-  public void testSingleDocElemNsWithAttrs() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $$("x", "xml", xmlns("x"), "http://com.acme", xmlns("a"), "http://com.acme.attribute", nsattr("a", "color"),
-            "red");
-        {
-          $$("x", "nested", "a:color", "green", $);
-        }
-        $();
-      }
-    };
+	public void testSingleDocElemNsWithAttrs() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$$("x", "xml", xmlns("x"), "http://com.acme", xmlns("a"), "http://com.acme.attribute", nsattr("a", "color"), "red");
+				{
+					$$("x", "nested", "a:color", "green", $);
+				}
+				$();
+			}
+		};
 
-    String result = createXmlContent(xml);
-    myAssertXMLEqual(
-        "<x:xml xmlns:x='http://com.acme' xmlns:aaa='http://com.acme.attribute' aaa:color='red'><x:nested aaa:color='green'/></x:xml>",
-        result);
-  }
+		String result = createXmlContent(xml);
+		myAssertXMLEqual("<x:xml xmlns:x='http://com.acme' xmlns:aaa='http://com.acme.attribute' aaa:color='red'><x:nested aaa:color='green'/></x:xml>", result);
+	}
 
-  public void testSingleDocElemNsMultiples() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $$("x", "xml", xmlns("x"), "http://com.acme", xmlns("a"), "http://com.acme.attribute");
-        {
-          $$("a", "BODY", $);
-        }
-        $();
-      }
-    };
+	public void testSingleDocElemNsMultiples() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$$("x", "xml", xmlns("x"), "http://com.acme", xmlns("a"), "http://com.acme.attribute");
+				{
+					$$("a", "BODY", $);
+				}
+				$();
+			}
+		};
 
-    String result = createXmlContent(xml);
-    myAssertXMLEqual("<x:xml xmlns:x='http://com.acme' xmlns:aaa='http://com.acme.attribute'><aaa:BODY/></x:xml>",
-        result);
-  }
+		String result = createXmlContent(xml);
+		myAssertXMLEqual("<x:xml xmlns:x='http://com.acme' xmlns:aaa='http://com.acme.attribute'><aaa:BODY/></x:xml>", result);
+	}
 
-  public void testSingleDocElemNsEmptyPrefix() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("xml", xmlns, "http://com.acme", $);
-      }
-    };
+	public void testSingleDocElemNsEmptyPrefix() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("xml", xmlns, "http://com.acme", $);
+			}
+		};
 
-    String result = createXmlContent(xml);
-    myAssertXMLEqual("<x:xml xmlns:x='http://com.acme'></x:xml>", result);
-    myAssertXMLEqual("<xml xmlns='http://com.acme'></xml>", result);
-  }
+		String result = createXmlContent(xml);
+		myAssertXMLEqual("<x:xml xmlns:x='http://com.acme'></x:xml>", result);
+		myAssertXMLEqual("<xml xmlns='http://com.acme'></xml>", result);
+	}
 
-  public void testSingleDocElem() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("xml", $);
-      }
-    };
+	public void testSingleDocElem() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("xml", $);
+			}
+		};
 
-    myAssertXMLEqual("<xml></xml>", createXmlContent(xml));
-  }
+		myAssertXMLEqual("<xml></xml>", createXmlContent(xml));
+	}
 
-  public void testSingleDocElemWithValue() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("xml", "hello world!", $);
-      }
-    };
+	public void testSingleDocElemWithValue() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("xml", "hello world!", $);
+			}
+		};
 
-    myAssertXMLEqual("<xml>hello world!</xml>", createXmlContent(xml));
-  }
+		myAssertXMLEqual("<xml>hello world!</xml>", createXmlContent(xml));
+	}
 
-  public void testSmallestPossibleXml() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("a", $);
-      }
-    };
+	public void testSmallestPossibleXml() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("a", $);
+			}
+		};
 
-    myAssertXMLEqual("<a/>", createXmlContent(xml));
-  }
+		myAssertXMLEqual("<a/>", createXmlContent(xml));
+	}
 
-  public void testSingleDocElemWithSingleAttribute() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("xml", "content-type", "text/css", $);
-      }
-    };
+	public void testSingleDocElemWithSingleAttribute() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("xml", "content-type", "text/css", $);
+			}
+		};
 
-    myAssertXMLEqual("<xml content-type='text/css'></xml>", createXmlContent(xml));
-  }
+		myAssertXMLEqual("<xml content-type='text/css'></xml>", createXmlContent(xml));
+	}
 
-  public void testSingleDocElemWithSingleAttributeAndValue() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("xml", "content-type", "text/css", "the value", $);
-      }
-    };
+	public void testSingleDocElemWithSingleAttributeAndValue() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("xml", "content-type", "text/css", "the value", $);
+			}
+		};
 
-    myAssertXMLEqual("<xml content-type='text/css'>the value</xml>", createXmlContent(xml));
-  }
+		myAssertXMLEqual("<xml content-type='text/css'>the value</xml>", createXmlContent(xml));
+	}
 
-  public void testSingleDocElemWithManyAttributes() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("xml", "border", 1, "width", "100%", "enabled", true, $);
-      }
-    };
+	public void testSingleDocElemWithManyAttributes() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("xml", "border", 1, "width", "100%", "enabled", true, $);
+			}
+		};
 
-    myAssertXMLEqual("<xml border='1' width='100%' enabled='true'></xml>", createXmlContent(xml));
-  }
+		myAssertXMLEqual("<xml border='1' width='100%' enabled='true'></xml>", createXmlContent(xml));
+	}
 
-  public void testSingleDocElemWithManyAttributesAndValue() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("xml", "border", 1, "width", "100%", "enabled", true, "value is here", $);
-      }
-    };
+	public void testSingleDocElemWithManyAttributesAndValue() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("xml", "border", 1, "width", "100%", "enabled", true, "value is here", $);
+			}
+		};
 
-    myAssertXMLEqual("<xml border='1' width='100%' enabled='true'>value is here</xml>", createXmlContent(xml));
-  }
+		myAssertXMLEqual("<xml border='1' width='100%' enabled='true'>value is here</xml>", createXmlContent(xml));
+	}
 
-  public void testNested() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("xml");
-        {
-          $("body");
-          {
-            $("p1", $);
-            $("p2", $);
-            $("h1", "border", true, $);
-            $("b", "hello", $);
-            $("code", "java.lang.String#valueOf(char)", $);
-          }
-          $();
-        }
-        $();
-      }
-    };
+	public void testNested() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("xml");
+				{
+					$("body");
+					{
+						$("p1", $);
+						$("p2", $);
+						$("h1", "border", true, $);
+						$("b", "hello", $);
+						$("code", "java.lang.String#valueOf(char)", $);
+					}
+					$();
+				}
+				$();
+			}
+		};
 
-    myAssertXMLEqual(
-        "<xml><body><p1></p1><h1 border='true'></h1><b>hello</b><code>java.lang.String#valueOf(char)</code><p2></p2></body></xml>",
-        createXmlContent(xml));
-  }
+		myAssertXMLEqual("<xml><body><p1></p1><h1 border='true'></h1><b>hello</b><code>java.lang.String#valueOf(char)</code><p2></p2></body></xml>", createXmlContent(xml));
+	}
 
-  public void testXsSchema() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $$("xs", "schema", xmlns("xs"), "http://www.w3.org/2001/XMLSchema", $);
-      }
-    };
+	public void testXsSchema() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$$("xs", "schema", xmlns("xs"), "http://www.w3.org/2001/XMLSchema", $);
+			}
+		};
 
-    String result = createXmlContent(xml);
-    myAssertXMLEqual("<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'></xs:schema>", result);
-  }
+		String result = createXmlContent(xml);
+		myAssertXMLEqual("<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'></xs:schema>", result);
+	}
 
-  public void testXsSchema2() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("schema", xmlns, "http://www.w3.org/2001/XMLSchema", $);
-      }
-    };
+	public void testXsSchema2() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("schema", xmlns, "http://www.w3.org/2001/XMLSchema", $);
+			}
+		};
 
-    String result = createXmlContent(xml);
-    myAssertXMLEqual("<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'></xs:schema>", result);
-    myAssertXMLEqual("<schema xmlns='http://www.w3.org/2001/XMLSchema'/>", result);
-  }
+		String result = createXmlContent(xml);
+		myAssertXMLEqual("<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'></xs:schema>", result);
+		myAssertXMLEqual("<schema xmlns='http://www.w3.org/2001/XMLSchema'/>", result);
+	}
 
-  public void testNsAttr() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("content", xmlns("a"), "com.acme", nsattr("a", "id"), "zx500", $);
-      }
-    };
+	public void testNsAttr() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("content", xmlns("a"), "com.acme", nsattr("a", "id"), "zx500", $);
+			}
+		};
 
-    String result = createXmlContent(xml);
-    myAssertXMLEqual("<content xmlns:a='com.acme' a:id='zx500'/>", result);
-  }
+		String result = createXmlContent(xml);
+		myAssertXMLEqual("<content xmlns:a='com.acme' a:id='zx500'/>", result);
+	}
 
-  public void testNsNested() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $$("o", "outer", xmlns("o"), "com.acme.outer", xmlns("i"), "com.acme.inner");
-        {
-          $$("i", "inner", $);
-        }
-        $();
-      }
-    };
+	public void testNsNested() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$$("o", "outer", xmlns("o"), "com.acme.outer", xmlns("i"), "com.acme.inner");
+				{
+					$$("i", "inner", $);
+				}
+				$();
+			}
+		};
 
-    String result = createXmlContent(xml);
-    myAssertXMLEqual("<o:outer xmlns:o='com.acme.outer' xmlns:i='com.acme.inner'><i:inner/></o:outer>", result);
-  }
+		String result = createXmlContent(xml);
+		myAssertXMLEqual("<o:outer xmlns:o='com.acme.outer' xmlns:i='com.acme.inner'><i:inner/></o:outer>", result);
+	}
 
-  public void testMore453() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("page");
-        {
-          $("body");
-          {
-            $("h1", "hello world", $);
-          }
-          $();
-        }
-        $();
-      }
-    };
+	public void testMore453() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("page");
+				{
+					$("body");
+					{
+						$("h1", "hello world", $);
+					}
+					$();
+				}
+				$();
+			}
+		};
 
-    String result = createXmlContent(xml);
-    myAssertXMLEqual("<page><body><h1>hello world</h1></body></page>", result);
-  }
+		String result = createXmlContent(xml);
+		myAssertXMLEqual("<page><body><h1>hello world</h1></body></page>", result);
+	}
 
-  public void testMore453abcx() throws Exception {
-    StringWriter out = new StringWriter();
-    Xml<?> x = new Xml.Default(createContentHandler(out));
-    x.$("page");
-    {
-      x.$("body");
-      {
-        x.text("abc");
-      }
-      x.$();
-    }
-    x.$();
-    String result = out.toString();
-    myAssertXMLEqual("<page><body>abc</body></page>", result);
-  }
+	public void testMore453abcx() throws Exception {
+		StringWriter out = new StringWriter();
+		Xml<?> x = new Xml.Default(createContentHandler(out));
+		x.$("page");
+		{
+			x.$("body");
+			{
+				x.text("abc");
+			}
+			x.$();
+		}
+		x.$();
+		String result = out.toString();
+		myAssertXMLEqual("<page><body>abc</body></page>", result);
+	}
 
-  public void testMore453abc() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("page");
-        {
-          $("body", "x", 1);
-          {
-            $("h1", "hello world with $", $);
-            $("h2", "~h2", $);
-          }
-          $();
-        }
-        $();
-      }
-    };
+	public void testMore453abc() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("page");
+				{
+					$("body", "x", 1);
+					{
+						$("h1", "hello world with $", $);
+						$("h2", "~h2", $);
+					}
+					$();
+				}
+				$();
+			}
+		};
 
-    String result = createXmlContent(xml);
-    myAssertXMLEqual("<page><body x='1'><h1>hello world with $</h1><h2>~h2</h2></body></page>", result);
-  }
+		String result = createXmlContent(xml);
+		myAssertXMLEqual("<page><body x='1'><h1>hello world with $</h1><h2>~h2</h2></body></page>", result);
+	}
 
-  public void testAttrWithNullValue() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("content", "attr", null, $);
-      }
-    };
+	public void testAttrWithNullValue() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("content", "attr", null, $);
+			}
+		};
 
-    String result = createXmlContent(xml);
-    myAssertXMLEqual("<content/>", result);
-  }
+		String result = createXmlContent(xml);
+		myAssertXMLEqual("<content/>", result);
+	}
 
-  public void testAttrWithNullText() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("content", null, $);
-      }
-    };
+	public void testAttrWithNullText() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("content", null, $);
+			}
+		};
 
-    String result = createXmlContent(xml);
-    myAssertXMLEqual("<content/>", result);
-  }
+		String result = createXmlContent(xml);
+		myAssertXMLEqual("<content/>", result);
+	}
 
-  public void testFailTooManyEnds() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("content", null, $);
-        $();
-      }
-    };
+	public void testFailTooManyEnds() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("content", null, $);
+				$();
+			}
+		};
 
-    try {
-      createXmlContent(xml);
-      fail();
-    } catch (Exception e) {
-      // ok
-      assertTrue(e.getMessage().contains("Too many calls"));
-    }
-  }
+		try {
+			createXmlContent(xml);
+			fail();
+		} catch (Exception e) {
+			// ok
+			assertTrue(e.getMessage().contains("Too many calls"));
+		}
+	}
 
-  public void testFailTooFewEnds() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        $("content");
-      }
-    };
+	public void testFailTooFewEnds() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				$("content");
+			}
+		};
 
-    try {
-      createXmlContent(xml);
-      fail();
-    } catch (Exception e) {
-      // ok
-      assertTrue(e.getMessage().contains("Missing call"));
-    }
-  }
+		try {
+			createXmlContent(xml);
+			fail();
+		} catch (Exception e) {
+			// ok
+			assertTrue(e.getMessage().contains("Missing call"));
+		}
+	}
 }

@@ -26,14 +26,14 @@ import junit.framework.TestSuite;
  */
 public class HyperXmlTests {
 
-  public static Test suite() throws Exception {
-    TestSuite suite = new TestSuite("Test for HyperXml");
-    // $JUnit-BEGIN$
-    // suite.addTestSuite(SchemaBuilderTest.class);
-    suite.addTestSuite(XmlTest.class);
-    suite.addTestSuite(XHtmlTest.class);
-    // $JUnit-END$
-    return suite;
-  }
+	public static Test suite() throws Exception {
+		TestSuite suite = new TestSuite("Test for HyperXml");
+		// $JUnit-BEGIN$
+		// suite.addTestSuite(SchemaBuilderTest.class);
+		suite.addTestSuite(XmlTest.class);
+		suite.addTestSuite(XHtmlTest.class);
+		// $JUnit-END$
+		return suite;
+	}
 
 }

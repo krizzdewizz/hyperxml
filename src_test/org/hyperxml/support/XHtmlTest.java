@@ -23,25 +23,25 @@ import org.hyperxml.support.XHtml;
  */
 public class XHtmlTest extends AbstractXmlTest {
 
-  private abstract static class MyXml extends XHtml<MyXml> {
-  }
+	private abstract static class MyXml extends XHtml<MyXml> {
+	}
 
-  public void testDoc() throws Exception {
-    MyXml xml = new MyXml() {
-      protected void create() {
-        html();
-        {
-          body(onload, "alert('kuckuck')");
-          {
-            h3("hello", $);
-          }
-          $();
-        }
-        $();
-      }
-    };
+	public void testDoc() throws Exception {
+		MyXml xml = new MyXml() {
+			protected void create() {
+				html();
+				{
+					body(onload, "alert('kuckuck')");
+					{
+						h3("hello", $);
+					}
+					$();
+				}
+				$();
+			}
+		};
 
-    String result = createXmlContent(xml);
-    System.out.println(getClass().getName() + ": " + result);
-  }
+		String result = createXmlContent(xml);
+		System.out.println(getClass().getName() + ": " + result);
+	}
 }
