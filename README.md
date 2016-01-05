@@ -50,7 +50,7 @@ A runtime error will occur upon start/end call mismatch. For better maintenance,
 
 
 ## (X)HTML support
-For easier building of (X)HTML output, subclass `org.hyperxml.support.XHtml` instead: 
+For easier building of (X)HTML output, subclass `XHtml` instead: 
 
 ```
 XHtml xml = new XHtml() {
