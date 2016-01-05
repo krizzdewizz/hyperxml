@@ -24,11 +24,8 @@ import org.hyperxml.support.XHtml;
  */
 public class XmlTest extends AbstractXmlTest {
 
-	private abstract static class MyXml extends Xml<MyXml> {
-	}
-
 	public void testSingleDocElemNs() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$$("x", "xml", xmlns("x"), "http://com.acme", $);
 			}
@@ -39,7 +36,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testSingleDocElemNsWithAttrs() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$$("x", "xml", xmlns("x"), "http://com.acme", xmlns("a"), "http://com.acme.attribute", nsattr("a", "color"), "red");
 				{
@@ -54,7 +51,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testSingleDocElemNsMultiples() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$$("x", "xml", xmlns("x"), "http://com.acme", xmlns("a"), "http://com.acme.attribute");
 				{
@@ -69,7 +66,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testSingleDocElemNsEmptyPrefix() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("xml", xmlns, "http://com.acme", $);
 			}
@@ -81,7 +78,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testSingleDocElem() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("xml", $);
 			}
@@ -91,7 +88,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testSingleDocElemWithValue() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("xml", "hello world!", $);
 			}
@@ -101,7 +98,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testSmallestPossibleXml() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("a", $);
 			}
@@ -111,7 +108,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testSingleDocElemWithSingleAttribute() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("xml", "content-type", "text/css", $);
 			}
@@ -121,7 +118,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testSingleDocElemWithSingleAttributeAndValue() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("xml", "content-type", "text/css", "the value", $);
 			}
@@ -131,7 +128,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testSingleDocElemWithManyAttributes() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("xml", "border", 1, "width", "100%", "enabled", true, $);
 			}
@@ -141,7 +138,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testSingleDocElemWithManyAttributesAndValue() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("xml", "border", 1, "width", "100%", "enabled", true, "value is here", $);
 			}
@@ -151,7 +148,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testNested() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("xml");
 				{
@@ -173,7 +170,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testXsSchema() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$$("xs", "schema", xmlns("xs"), "http://www.w3.org/2001/XMLSchema", $);
 			}
@@ -184,7 +181,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testXsSchema2() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("schema", xmlns, "http://www.w3.org/2001/XMLSchema", $);
 			}
@@ -196,7 +193,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testNsAttr() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("content", xmlns("a"), "com.acme", nsattr("a", "id"), "zx500", $);
 			}
@@ -207,7 +204,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testNsNested() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$$("o", "outer", xmlns("o"), "com.acme.outer", xmlns("i"), "com.acme.inner");
 				{
@@ -222,7 +219,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testMore453() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("page");
 				{
@@ -242,7 +239,7 @@ public class XmlTest extends AbstractXmlTest {
 
 	public void testMore453abcx() throws Exception {
 		StringWriter out = new StringWriter();
-		Xml<?> x = new Xml.Default();
+		Xml x = new Xml();
 		x.setContentHandler(createContentHandler(out));
 		x.$("page");
 		{
@@ -259,7 +256,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testMore453abc() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("page");
 				{
@@ -279,7 +276,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testAttrWithNullValue() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("content", "attr", null, $);
 			}
@@ -290,7 +287,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testAttrWithNullText() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("content", null, $);
 			}
@@ -301,7 +298,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testFailTooManyEnds() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("content", null, $);
 				$();
@@ -318,7 +315,7 @@ public class XmlTest extends AbstractXmlTest {
 	}
 
 	public void testFailTooFewEnds() throws Exception {
-		MyXml xml = new MyXml() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("content");
 			}
@@ -335,7 +332,7 @@ public class XmlTest extends AbstractXmlTest {
 
 	public void test4Doc() throws Exception {
 
-		Xml.Default xml = new Xml.Default() {
+		Xml xml = new Xml() {
 			protected void create() {
 				$("html");
 				{

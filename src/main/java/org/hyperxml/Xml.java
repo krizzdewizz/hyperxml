@@ -41,15 +41,7 @@ import org.xml.sax.helpers.AttributesImpl;
  * 
  * @author krizzdewizz
  */
-public class Xml<T extends Xml<?>> {
-
-	/**
-	 * Default, type-argument less implementation.
-	 */
-	public static class Default extends Xml<Default> {
-		public Default() {
-		}
-	}
+public class Xml {
 
 	/**
 	 * The <code>xmlns</code> attribute used for namespace declaration with an
@@ -162,14 +154,12 @@ public class Xml<T extends Xml<?>> {
 	 * 
 	 * @param contentHandler
 	 *            To where to write this xml to
-	 * @return this
 	 */
-	public T build(ContentHandler contentHandler) {
+	public void build(ContentHandler contentHandler) {
 		try {
 			_contentHandler = contentHandler;
 			create();
 			checkStack();
-			return _this();
 		} finally {
 			_contentHandler = null;
 		}
@@ -182,10 +172,9 @@ public class Xml<T extends Xml<?>> {
 	 * 
 	 * @param out
 	 *            destination
-	 * @return this
 	 */
-	public T build(OutputStream out) {
-		return build(new StreamResult(out));
+	public void build(OutputStream out) {
+		build(new StreamResult(out));
 	}
 
 	/**
@@ -195,18 +184,17 @@ public class Xml<T extends Xml<?>> {
 	 * 
 	 * @param out
 	 *            destination
-	 * @return this
 	 */
-	public T build(Writer out) {
-		return build(new StreamResult(out));
+	public void build(Writer out) {
+		build(new StreamResult(out));
 	}
 
-	private T build(StreamResult result) {
+	private void build(StreamResult result) {
 		try {
 			SAXTransformerFactory f = (SAXTransformerFactory) TransformerFactory.newInstance();
 			TransformerHandler handler = f.newTransformerHandler();
 			handler.setResult(result);
-			return build(handler);
+			build(handler);
 		} catch (Exception e) {
 			throw HyperXmlException.wrap(e);
 		}
@@ -244,11 +232,10 @@ public class Xml<T extends Xml<?>> {
 	 * 
 	 * @param text
 	 *            The text to output
-	 * @return <code>this</code>
 	 */
-	public T text(String text) {
+	public void text(String text) {
 		char[] ch = text.toCharArray();
-		return characters(ch, 0, ch.length);
+		characters(ch, 0, ch.length);
 	}
 
 	/**
@@ -260,13 +247,11 @@ public class Xml<T extends Xml<?>> {
 	 *            Start
 	 * @param length
 	 *            Length
-	 * @return <code>this</code>
 	 * @see ContentHandler#characters(char[], int, int)
 	 */
-	public T characters(char[] ch, int start, int length) {
+	public void characters(char[] ch, int start, int length) {
 		try {
 			_contentHandler.characters(ch, start, length);
-			return _this();
 		} catch (Exception e) {
 			throw HyperXmlException.wrap(e);
 		}
@@ -287,11 +272,10 @@ public class Xml<T extends Xml<?>> {
 	 *            starting the element (auto-end). If the length of the array is
 	 *            odd, the last element designates the value for the element.
 	 *            May be empty. An attribute name may be namespace-prefixed.
-	 * @return <code>this</code>
 	 * @see #$$(String, String, Object...)
 	 */
-	public T $(String name, Object... params) {
-		return $$("", name, params);
+	public void $(String name, Object... params) {
+		$$("", name, params);
 	}
 
 	/**
@@ -308,9 +292,8 @@ public class Xml<T extends Xml<?>> {
 	 *            value. If the length of the array is odd, the last element
 	 *            designates the value for the element. May be empty. An
 	 *            attribute name may be namespace-prefixed.
-	 * @return <code>this</code>
 	 */
-	public T $$(String nsPrefix, String name, Object... params) {
+	public void $$(String nsPrefix, String name, Object... params) {
 		try {
 
 			if (nsPrefix == null || nsPrefix.isEmpty()) {
@@ -371,8 +354,6 @@ public class Xml<T extends Xml<?>> {
 			if (endElement) {
 				$();
 			}
-
-			return _this();
 		} catch (Exception e) {
 			throw HyperXmlException.wrap(e);
 		}
@@ -392,10 +373,8 @@ public class Xml<T extends Xml<?>> {
 
 	/**
 	 * Ends the last written element.
-	 * 
-	 * @return <code>this</code>
 	 */
-	public T $() {
+	public void $() {
 		try {
 			if (_stack.isEmpty()) {
 				throw new HyperXmlException("Too many calls to $().");
@@ -407,16 +386,9 @@ public class Xml<T extends Xml<?>> {
 			if (_stack.isEmpty()) {
 				_contentHandler.endDocument();
 			}
-
-			return _this();
 		} catch (Exception e) {
 			throw HyperXmlException.wrap(e);
 		}
-	}
-
-	@SuppressWarnings("unchecked")
-	protected T _this() {
-		return (T) this;
 	}
 
 	/**
@@ -442,7 +414,7 @@ public class Xml<T extends Xml<?>> {
 	/**
 	 * The current content handler.
 	 * 
-	 * @return contentHandler, non-null only during <code>build()</code> calls.
+	 * @return contentHandler, non-null during <code>build()</code> calls.
 	 */
 	public ContentHandler getContentHandler() {
 		return _contentHandler;

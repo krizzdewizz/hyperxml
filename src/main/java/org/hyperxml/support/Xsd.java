@@ -20,7 +20,7 @@ import org.hyperxml.Xml;
 /**
  * Elements and attributes contained in <code>XMLSchema.xsd.dat</code>. <br>
  */
-abstract public class Xsd extends Xml<Xsd> {
+public class Xsd extends Xml {
 	/**
 	 * The target namespace <code>http://www.w3.org/2001/XMLSchema</code>.
 	 */
@@ -238,12 +238,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd schema(Object... params) {
+	public void schema(Object... params) {
 		$("schema", params);
-		return _this();
 	}
 
 	/**
@@ -251,12 +249,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd group(Object... params) {
+	public void group(Object... params) {
 		$("group", params);
-		return _this();
 	}
 
 	/**
@@ -264,12 +260,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd elementt(Object... params) {
+	public void elementt(Object... params) {
 		$("element", params);
-		return _this();
 	}
 
 	/**
@@ -277,12 +271,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd simpleType(Object... params) {
+	public void simpleType(Object... params) {
 		$("simpleType", params);
-		return _this();
 	}
 
 	/**
@@ -290,12 +282,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd attribute(Object... params) {
+	public void attribute(Object... params) {
 		$("attribute", params);
-		return _this();
 	}
 
 	/**
@@ -303,12 +293,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd attributeGroup(Object... params) {
+	public void attributeGroup(Object... params) {
 		$("attributeGroup", params);
-		return _this();
 	}
 
 	/**
@@ -316,12 +304,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd anyAttribute(Object... params) {
+	public void anyAttribute(Object... params) {
 		$("anyAttribute", params);
-		return _this();
 	}
 
 	/**
@@ -329,12 +315,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd complexContent(Object... params) {
+	public void complexContent(Object... params) {
 		$("complexContent", params);
-		return _this();
 	}
 
 	/**
@@ -342,12 +326,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd restriction(Object... params) {
+	public void restriction(Object... params) {
 		$("restriction", params);
-		return _this();
 	}
 
 	/**
@@ -355,12 +337,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd extension(Object... params) {
+	public void extension(Object... params) {
 		$("extension", params);
-		return _this();
 	}
 
 	/**
@@ -368,12 +348,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd simpleContent(Object... params) {
+	public void simpleContent(Object... params) {
 		$("simpleContent", params);
-		return _this();
 	}
 
 	/**
@@ -381,12 +359,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd complexType(Object... params) {
+	public void complexType(Object... params) {
 		$("complexType", params);
-		return _this();
 	}
 
 	/**
@@ -394,12 +370,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd all(Object... params) {
+	public void all(Object... params) {
 		$("all", params);
-		return _this();
 	}
 
 	/**
@@ -407,12 +381,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd choice(Object... params) {
+	public void choice(Object... params) {
 		$("choice", params);
-		return _this();
 	}
 
 	/**
@@ -420,12 +392,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd sequence(Object... params) {
+	public void sequence(Object... params) {
 		$("sequence", params);
-		return _this();
 	}
 
 	/**
@@ -433,12 +403,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd any(Object... params) {
+	public void any(Object... params) {
 		$("any", params);
-		return _this();
 	}
 
 	/**
@@ -446,12 +414,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd include(Object... params) {
+	public void include(Object... params) {
 		$("include", params);
-		return _this();
 	}
 
 	/**
@@ -459,12 +425,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd redefine(Object... params) {
+	public void redefine(Object... params) {
 		$("redefine", params);
-		return _this();
 	}
 
 	/**
@@ -472,12 +436,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd importt(Object... params) {
+	public void importt(Object... params) {
 		$("import", params);
-		return _this();
 	}
 
 	/**
@@ -485,12 +447,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd selector(Object... params) {
+	public void selector(Object... params) {
 		$("selector", params);
-		return _this();
 	}
 
 	/**
@@ -498,12 +458,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd field(Object... params) {
+	public void field(Object... params) {
 		$("field", params);
-		return _this();
 	}
 
 	/**
@@ -511,12 +469,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd unique(Object... params) {
+	public void unique(Object... params) {
 		$("unique", params);
-		return _this();
 	}
 
 	/**
@@ -524,12 +480,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd key(Object... params) {
+	public void key(Object... params) {
 		$("key", params);
-		return _this();
 	}
 
 	/**
@@ -537,12 +491,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd keyref(Object... params) {
+	public void keyref(Object... params) {
 		$("keyref", params);
-		return _this();
 	}
 
 	/**
@@ -550,12 +502,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd notation(Object... params) {
+	public void notation(Object... params) {
 		$("notation", params);
-		return _this();
 	}
 
 	/**
@@ -563,12 +513,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd appinfo(Object... params) {
+	public void appinfo(Object... params) {
 		$("appinfo", params);
-		return _this();
 	}
 
 	/**
@@ -576,12 +524,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd documentation(Object... params) {
+	public void documentation(Object... params) {
 		$("documentation", params);
-		return _this();
 	}
 
 	/**
@@ -589,12 +535,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd annotation(Object... params) {
+	public void annotation(Object... params) {
 		$("annotation", params);
-		return _this();
 	}
 
 	/**
@@ -602,12 +546,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd list(Object... params) {
+	public void list(Object... params) {
 		$("list", params);
-		return _this();
 	}
 
 	/**
@@ -615,12 +557,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd union(Object... params) {
+	public void union(Object... params) {
 		$("union", params);
-		return _this();
 	}
 
 	/**
@@ -628,12 +568,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd minExclusive(Object... params) {
+	public void minExclusive(Object... params) {
 		$("minExclusive", params);
-		return _this();
 	}
 
 	/**
@@ -641,12 +579,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd minInclusive(Object... params) {
+	public void minInclusive(Object... params) {
 		$("minInclusive", params);
-		return _this();
 	}
 
 	/**
@@ -654,12 +590,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd maxExclusive(Object... params) {
+	public void maxExclusive(Object... params) {
 		$("maxExclusive", params);
-		return _this();
 	}
 
 	/**
@@ -667,12 +601,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd maxInclusive(Object... params) {
+	public void maxInclusive(Object... params) {
 		$("maxInclusive", params);
-		return _this();
 	}
 
 	/**
@@ -680,12 +612,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd totalDigits(Object... params) {
+	public void totalDigits(Object... params) {
 		$("totalDigits", params);
-		return _this();
 	}
 
 	/**
@@ -693,12 +623,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd fractionDigits(Object... params) {
+	public void fractionDigits(Object... params) {
 		$("fractionDigits", params);
-		return _this();
 	}
 
 	/**
@@ -706,12 +634,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd length(Object... params) {
+	public void length(Object... params) {
 		$("length", params);
-		return _this();
 	}
 
 	/**
@@ -719,12 +645,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd minLength(Object... params) {
+	public void minLength(Object... params) {
 		$("minLength", params);
-		return _this();
 	}
 
 	/**
@@ -732,12 +656,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd maxLength(Object... params) {
+	public void maxLength(Object... params) {
 		$("maxLength", params);
-		return _this();
 	}
 
 	/**
@@ -745,12 +667,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd enumeration(Object... params) {
+	public void enumeration(Object... params) {
 		$("enumeration", params);
-		return _this();
 	}
 
 	/**
@@ -758,12 +678,10 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd whiteSpace(Object... params) {
+	public void whiteSpace(Object... params) {
 		$("whiteSpace", params);
-		return _this();
 	}
 
 	/**
@@ -771,11 +689,9 @@ abstract public class Xsd extends Xml<Xsd> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public Xsd pattern(Object... params) {
+	public void pattern(Object... params) {
 		$("pattern", params);
-		return _this();
 	}
 }

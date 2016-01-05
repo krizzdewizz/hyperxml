@@ -39,7 +39,7 @@ abstract public class AbstractXmlTest extends XMLTestCase {
 		return handler;
 	}
 
-	protected static String createXmlContent(Xml<?> xml) throws Exception {
+	protected static String createXmlContent(Xml xml) throws Exception {
 		StringWriter out = new StringWriter();
 		xml.build(out);
 		return out.toString();

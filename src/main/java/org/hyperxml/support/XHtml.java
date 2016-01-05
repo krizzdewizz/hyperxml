@@ -21,7 +21,7 @@ import org.hyperxml.Xml;
 /**
  * Elements and attributes contained in <code>xhtml1-strict.xsd.dat</code>. <br>
  */
-abstract public class XHtml extends Xml<XHtml> {
+public class XHtml extends Xml {
 	/**
 	 * The target namespace <code>http://www.w3.org/1999/xhtml</code>.
 	 */
@@ -417,9 +417,8 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * @param propertyValuePairs
 	 *            css property/value pairs such as
 	 *            <code>["color", "red", "display", "none"]</code>
-	 * @return this
 	 */
-	public XHtml css(String selector, Object... propertyValuePairs) {
+	public void css(String selector, Object... propertyValuePairs) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(selector);
 		sb.append('{');
@@ -431,7 +430,6 @@ abstract public class XHtml extends Xml<XHtml> {
 		}
 		sb.append('}');
 		text(sb.toString());
-		return _this();
 	}
 
 	/**
@@ -439,12 +437,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml html(Object... params) {
+	public void html(Object... params) {
 		$("html", params);
-		return _this();
 	}
 
 	/**
@@ -452,12 +448,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml head(Object... params) {
+	public void head(Object... params) {
 		$("head", params);
-		return _this();
 	}
 
 	/**
@@ -465,12 +459,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml title(Object... params) {
+	public void title(Object... params) {
 		$("title", params);
-		return _this();
 	}
 
 	/**
@@ -478,12 +470,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml base(Object... params) {
+	public void base(Object... params) {
 		$("base", params);
-		return _this();
 	}
 
 	/**
@@ -491,12 +481,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml meta(Object... params) {
+	public void meta(Object... params) {
 		$("meta", params);
-		return _this();
 	}
 
 	/**
@@ -504,12 +492,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml link(Object... params) {
+	public void link(Object... params) {
 		$("link", params);
-		return _this();
 	}
 
 	/**
@@ -517,12 +503,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml style(Object... params) {
+	public void style(Object... params) {
 		$("style", params);
-		return _this();
 	}
 
 	/**
@@ -530,12 +514,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml script(Object... params) {
+	public void script(Object... params) {
 		$("script", params);
-		return _this();
 	}
 
 	/**
@@ -543,12 +525,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml noscript(Object... params) {
+	public void noscript(Object... params) {
 		$("noscript", params);
-		return _this();
 	}
 
 	/**
@@ -556,12 +536,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml body(Object... params) {
+	public void body(Object... params) {
 		$("body", params);
-		return _this();
 	}
 
 	/**
@@ -569,12 +547,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml div(Object... params) {
+	public void div(Object... params) {
 		$("div", params);
-		return _this();
 	}
 
 	/**
@@ -582,12 +558,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml p(Object... params) {
+	public void p(Object... params) {
 		$("p", params);
-		return _this();
 	}
 
 	/**
@@ -595,12 +569,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml h1(Object... params) {
+	public void h1(Object... params) {
 		$("h1", params);
-		return _this();
 	}
 
 	/**
@@ -608,12 +580,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml h2(Object... params) {
+	public void h2(Object... params) {
 		$("h2", params);
-		return _this();
 	}
 
 	/**
@@ -621,12 +591,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml h3(Object... params) {
+	public void h3(Object... params) {
 		$("h3", params);
-		return _this();
 	}
 
 	/**
@@ -634,12 +602,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml h4(Object... params) {
+	public void h4(Object... params) {
 		$("h4", params);
-		return _this();
 	}
 
 	/**
@@ -647,12 +613,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml h5(Object... params) {
+	public void h5(Object... params) {
 		$("h5", params);
-		return _this();
 	}
 
 	/**
@@ -660,12 +624,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml h6(Object... params) {
+	public void h6(Object... params) {
 		$("h6", params);
-		return _this();
 	}
 
 	/**
@@ -673,12 +635,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml ul(Object... params) {
+	public void ul(Object... params) {
 		$("ul", params);
-		return _this();
 	}
 
 	/**
@@ -686,12 +646,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml ol(Object... params) {
+	public void ol(Object... params) {
 		$("ol", params);
-		return _this();
 	}
 
 	/**
@@ -699,12 +657,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml li(Object... params) {
+	public void li(Object... params) {
 		$("li", params);
-		return _this();
 	}
 
 	/**
@@ -712,12 +668,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml dl(Object... params) {
+	public void dl(Object... params) {
 		$("dl", params);
-		return _this();
 	}
 
 	/**
@@ -725,12 +679,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml dt(Object... params) {
+	public void dt(Object... params) {
 		$("dt", params);
-		return _this();
 	}
 
 	/**
@@ -738,12 +690,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml dd(Object... params) {
+	public void dd(Object... params) {
 		$("dd", params);
-		return _this();
 	}
 
 	/**
@@ -751,12 +701,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml address(Object... params) {
+	public void address(Object... params) {
 		$("address", params);
-		return _this();
 	}
 
 	/**
@@ -764,12 +712,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml hr(Object... params) {
+	public void hr(Object... params) {
 		$("hr", params);
-		return _this();
 	}
 
 	/**
@@ -777,12 +723,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml pre(Object... params) {
+	public void pre(Object... params) {
 		$("pre", params);
-		return _this();
 	}
 
 	/**
@@ -790,12 +734,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml blockquote(Object... params) {
+	public void blockquote(Object... params) {
 		$("blockquote", params);
-		return _this();
 	}
 
 	/**
@@ -803,12 +745,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml ins(Object... params) {
+	public void ins(Object... params) {
 		$("ins", params);
-		return _this();
 	}
 
 	/**
@@ -816,12 +756,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml del(Object... params) {
+	public void del(Object... params) {
 		$("del", params);
-		return _this();
 	}
 
 	/**
@@ -829,12 +767,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml a(Object... params) {
+	public void a(Object... params) {
 		$("a", params);
-		return _this();
 	}
 
 	/**
@@ -842,12 +778,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml span(Object... params) {
+	public void span(Object... params) {
 		$("span", params);
-		return _this();
 	}
 
 	/**
@@ -855,12 +789,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml bdo(Object... params) {
+	public void bdo(Object... params) {
 		$("bdo", params);
-		return _this();
 	}
 
 	/**
@@ -868,12 +800,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml br(Object... params) {
+	public void br(Object... params) {
 		$("br", params);
-		return _this();
 	}
 
 	/**
@@ -881,12 +811,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml em(Object... params) {
+	public void em(Object... params) {
 		$("em", params);
-		return _this();
 	}
 
 	/**
@@ -894,12 +822,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml strong(Object... params) {
+	public void strong(Object... params) {
 		$("strong", params);
-		return _this();
 	}
 
 	/**
@@ -907,12 +833,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml dfn(Object... params) {
+	public void dfn(Object... params) {
 		$("dfn", params);
-		return _this();
 	}
 
 	/**
@@ -920,12 +844,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml code(Object... params) {
+	public void code(Object... params) {
 		$("code", params);
-		return _this();
 	}
 
 	/**
@@ -933,12 +855,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml samp(Object... params) {
+	public void samp(Object... params) {
 		$("samp", params);
-		return _this();
 	}
 
 	/**
@@ -946,12 +866,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml kbd(Object... params) {
+	public void kbd(Object... params) {
 		$("kbd", params);
-		return _this();
 	}
 
 	/**
@@ -959,12 +877,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml var(Object... params) {
+	public void var(Object... params) {
 		$("var", params);
-		return _this();
 	}
 
 	/**
@@ -972,12 +888,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml cite(Object... params) {
+	public void cite(Object... params) {
 		$("cite", params);
-		return _this();
 	}
 
 	/**
@@ -985,12 +899,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml abbr(Object... params) {
+	public void abbr(Object... params) {
 		$("abbr", params);
-		return _this();
 	}
 
 	/**
@@ -998,12 +910,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml acronym(Object... params) {
+	public void acronym(Object... params) {
 		$("acronym", params);
-		return _this();
 	}
 
 	/**
@@ -1011,12 +921,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml q(Object... params) {
+	public void q(Object... params) {
 		$("q", params);
-		return _this();
 	}
 
 	/**
@@ -1024,12 +932,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml sub(Object... params) {
+	public void sub(Object... params) {
 		$("sub", params);
-		return _this();
 	}
 
 	/**
@@ -1037,12 +943,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml sup(Object... params) {
+	public void sup(Object... params) {
 		$("sup", params);
-		return _this();
 	}
 
 	/**
@@ -1050,12 +954,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml tt(Object... params) {
+	public void tt(Object... params) {
 		$("tt", params);
-		return _this();
 	}
 
 	/**
@@ -1063,12 +965,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml i(Object... params) {
+	public void i(Object... params) {
 		$("i", params);
-		return _this();
 	}
 
 	/**
@@ -1076,12 +976,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml b(Object... params) {
+	public void b(Object... params) {
 		$("b", params);
-		return _this();
 	}
 
 	/**
@@ -1089,12 +987,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml big(Object... params) {
+	public void big(Object... params) {
 		$("big", params);
-		return _this();
 	}
 
 	/**
@@ -1102,12 +998,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml small(Object... params) {
+	public void small(Object... params) {
 		$("small", params);
-		return _this();
 	}
 
 	/**
@@ -1115,12 +1009,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml object(Object... params) {
+	public void object(Object... params) {
 		$("object", params);
-		return _this();
 	}
 
 	/**
@@ -1128,12 +1020,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml param(Object... params) {
+	public void param(Object... params) {
 		$("param", params);
-		return _this();
 	}
 
 	/**
@@ -1141,12 +1031,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml img(Object... params) {
+	public void img(Object... params) {
 		$("img", params);
-		return _this();
 	}
 
 	/**
@@ -1154,12 +1042,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml map(Object... params) {
+	public void map(Object... params) {
 		$("map", params);
-		return _this();
 	}
 
 	/**
@@ -1167,12 +1053,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml area(Object... params) {
+	public void area(Object... params) {
 		$("area", params);
-		return _this();
 	}
 
 	/**
@@ -1180,12 +1064,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml form(Object... params) {
+	public void form(Object... params) {
 		$("form", params);
-		return _this();
 	}
 
 	/**
@@ -1193,12 +1075,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml label(Object... params) {
+	public void label(Object... params) {
 		$("label", params);
-		return _this();
 	}
 
 	/**
@@ -1206,12 +1086,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml input(Object... params) {
+	public void input(Object... params) {
 		$("input", params);
-		return _this();
 	}
 
 	/**
@@ -1219,12 +1097,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml select(Object... params) {
+	public void select(Object... params) {
 		$("select", params);
-		return _this();
 	}
 
 	/**
@@ -1232,12 +1108,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml optgroup(Object... params) {
+	public void optgroup(Object... params) {
 		$("optgroup", params);
-		return _this();
 	}
 
 	/**
@@ -1245,12 +1119,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml option(Object... params) {
+	public void option(Object... params) {
 		$("option", params);
-		return _this();
 	}
 
 	/**
@@ -1258,12 +1130,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml textarea(Object... params) {
+	public void textarea(Object... params) {
 		$("textarea", params);
-		return _this();
 	}
 
 	/**
@@ -1271,12 +1141,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml fieldset(Object... params) {
+	public void fieldset(Object... params) {
 		$("fieldset", params);
-		return _this();
 	}
 
 	/**
@@ -1284,12 +1152,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml legend(Object... params) {
+	public void legend(Object... params) {
 		$("legend", params);
-		return _this();
 	}
 
 	/**
@@ -1297,12 +1163,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml button(Object... params) {
+	public void button(Object... params) {
 		$("button", params);
-		return _this();
 	}
 
 	/**
@@ -1310,12 +1174,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml table(Object... params) {
+	public void table(Object... params) {
 		$("table", params);
-		return _this();
 	}
 
 	/**
@@ -1323,12 +1185,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml caption(Object... params) {
+	public void caption(Object... params) {
 		$("caption", params);
-		return _this();
 	}
 
 	/**
@@ -1336,12 +1196,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml thead(Object... params) {
+	public void thead(Object... params) {
 		$("thead", params);
-		return _this();
 	}
 
 	/**
@@ -1349,12 +1207,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml tfoot(Object... params) {
+	public void tfoot(Object... params) {
 		$("tfoot", params);
-		return _this();
 	}
 
 	/**
@@ -1362,12 +1218,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml tbody(Object... params) {
+	public void tbody(Object... params) {
 		$("tbody", params);
-		return _this();
 	}
 
 	/**
@@ -1375,12 +1229,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml colgroup(Object... params) {
+	public void colgroup(Object... params) {
 		$("colgroup", params);
-		return _this();
 	}
 
 	/**
@@ -1388,12 +1240,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml col(Object... params) {
+	public void col(Object... params) {
 		$("col", params);
-		return _this();
 	}
 
 	/**
@@ -1401,12 +1251,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml tr(Object... params) {
+	public void tr(Object... params) {
 		$("tr", params);
-		return _this();
 	}
 
 	/**
@@ -1414,12 +1262,10 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml th(Object... params) {
+	public void th(Object... params) {
 		$("th", params);
-		return _this();
 	}
 
 	/**
@@ -1427,11 +1273,9 @@ abstract public class XHtml extends Xml<XHtml> {
 	 * 
 	 * @param params
 	 *            Parameters
-	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public XHtml td(Object... params) {
+	public void td(Object... params) {
 		$("td", params);
-		return _this();
 	}
 }
