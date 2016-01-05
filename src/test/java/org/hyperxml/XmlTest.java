@@ -17,6 +17,8 @@ package org.hyperxml;
 
 import java.io.StringWriter;
 
+import org.hyperxml.support.XHtml;
+
 /**
  * @author krizzdewizz
  */
@@ -240,7 +242,8 @@ public class XmlTest extends AbstractXmlTest {
 
 	public void testMore453abcx() throws Exception {
 		StringWriter out = new StringWriter();
-		Xml<?> x = new Xml.Default(createContentHandler(out));
+		Xml<?> x = new Xml.Default();
+		x.setContentHandler(createContentHandler(out));
 		x.$("page");
 		{
 			x.$("body");
@@ -250,6 +253,7 @@ public class XmlTest extends AbstractXmlTest {
 			x.$();
 		}
 		x.$();
+
 		String result = out.toString();
 		myAssertXMLEqual("<page><body>abc</body></page>", result);
 	}
@@ -327,5 +331,63 @@ public class XmlTest extends AbstractXmlTest {
 			// ok
 			assertTrue(e.getMessage().contains("Missing call"));
 		}
+	}
+
+	public void test4Doc() throws Exception {
+
+		Xml.Default xml = new Xml.Default() {
+			protected void create() {
+				$("html");
+				{
+					$("body", "onload", "doThings()"); // attribute name-value
+														// pairs
+					{
+						$("h1", "class", "title", "hello world", $); // with
+																		// text
+																		// content,
+																		// $ -->
+																		// 'short
+																		// close'
+					}
+					$(); // body // no parameters --> end element
+				}
+				$(); // html
+			}
+		};
+		StringWriter out = new StringWriter();
+		xml.build(out);
+		System.out.println(out);
+	}
+
+	public void test4DocHtml() throws Exception {
+
+		XHtml xml = new XHtml() {
+			protected void create() {
+				html();
+				{
+					style();
+					{
+						css(".title", "color", "red");
+					}
+					$(); // style
+
+					script();
+					{
+						text("function doThings() { alert('done'); }");
+					}
+					$(); // script
+
+					body(onload, "doThings()");
+					{
+						h1(classs, "title", "hello world", $);
+					}
+					$(); // body
+				}
+				$(); // html
+			}
+		};
+		StringWriter out = new StringWriter();
+		xml.build(out);
+		System.out.println(out);
 	}
 }

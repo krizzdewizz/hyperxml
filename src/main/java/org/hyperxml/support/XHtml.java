@@ -17,12 +17,11 @@
 package org.hyperxml.support;
 
 import org.hyperxml.Xml;
-import org.xml.sax.ContentHandler;
 
 /**
  * Elements and attributes contained in <code>xhtml1-strict.xsd.dat</code>. <br>
  */
-abstract public class XHtml<T extends XHtml<?>> extends Xml<T> {
+abstract public class XHtml extends Xml<XHtml> {
 	/**
 	 * The target namespace <code>http://www.w3.org/1999/xhtml</code>.
 	 */
@@ -410,777 +409,1029 @@ abstract public class XHtml<T extends XHtml<?>> extends Xml<T> {
 	public XHtml() {
 	}
 
-	public XHtml(ContentHandler contentHandler) {
-		super(contentHandler);
+	/**
+	 * Outputs a CSS style declaration as a {@link #text(String)} call.
+	 * 
+	 * @param selector
+	 *            The selector
+	 * @param propertyValuePairs
+	 *            css property/value pairs such as
+	 *            <code>["color", "red", "display", "none"]</code>
+	 * @return this
+	 */
+	public XHtml css(String selector, Object... propertyValuePairs) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(selector);
+		sb.append('{');
+		for (int i = 0, n = propertyValuePairs.length; i < n; i += 2) {
+			sb.append(propertyValuePairs[i]);
+			sb.append(':');
+			sb.append(propertyValuePairs[i + 1]);
+			sb.append(';');
+		}
+		sb.append('}');
+		text(sb.toString());
+		return _this();
 	}
 
 	/**
 	 * The <code>html</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T html(Object... attributesAndOptionalValue) {
-		$("html", attributesAndOptionalValue);
+	public XHtml html(Object... params) {
+		$("html", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>head</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T head(Object... attributesAndOptionalValue) {
-		$("head", attributesAndOptionalValue);
+	public XHtml head(Object... params) {
+		$("head", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>title</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T title(Object... attributesAndOptionalValue) {
-		$("title", attributesAndOptionalValue);
+	public XHtml title(Object... params) {
+		$("title", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>base</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T base(Object... attributesAndOptionalValue) {
-		$("base", attributesAndOptionalValue);
+	public XHtml base(Object... params) {
+		$("base", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>meta</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T meta(Object... attributesAndOptionalValue) {
-		$("meta", attributesAndOptionalValue);
+	public XHtml meta(Object... params) {
+		$("meta", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>link</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T link(Object... attributesAndOptionalValue) {
-		$("link", attributesAndOptionalValue);
+	public XHtml link(Object... params) {
+		$("link", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>style</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T style(Object... attributesAndOptionalValue) {
-		$("style", attributesAndOptionalValue);
+	public XHtml style(Object... params) {
+		$("style", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>script</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T script(Object... attributesAndOptionalValue) {
-		$("script", attributesAndOptionalValue);
+	public XHtml script(Object... params) {
+		$("script", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>noscript</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T noscript(Object... attributesAndOptionalValue) {
-		$("noscript", attributesAndOptionalValue);
+	public XHtml noscript(Object... params) {
+		$("noscript", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>body</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T body(Object... attributesAndOptionalValue) {
-		$("body", attributesAndOptionalValue);
+	public XHtml body(Object... params) {
+		$("body", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>div</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T div(Object... attributesAndOptionalValue) {
-		$("div", attributesAndOptionalValue);
+	public XHtml div(Object... params) {
+		$("div", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>p</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T p(Object... attributesAndOptionalValue) {
-		$("p", attributesAndOptionalValue);
+	public XHtml p(Object... params) {
+		$("p", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>h1</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T h1(Object... attributesAndOptionalValue) {
-		$("h1", attributesAndOptionalValue);
+	public XHtml h1(Object... params) {
+		$("h1", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>h2</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T h2(Object... attributesAndOptionalValue) {
-		$("h2", attributesAndOptionalValue);
+	public XHtml h2(Object... params) {
+		$("h2", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>h3</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T h3(Object... attributesAndOptionalValue) {
-		$("h3", attributesAndOptionalValue);
+	public XHtml h3(Object... params) {
+		$("h3", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>h4</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T h4(Object... attributesAndOptionalValue) {
-		$("h4", attributesAndOptionalValue);
+	public XHtml h4(Object... params) {
+		$("h4", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>h5</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T h5(Object... attributesAndOptionalValue) {
-		$("h5", attributesAndOptionalValue);
+	public XHtml h5(Object... params) {
+		$("h5", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>h6</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T h6(Object... attributesAndOptionalValue) {
-		$("h6", attributesAndOptionalValue);
+	public XHtml h6(Object... params) {
+		$("h6", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>ul</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T ul(Object... attributesAndOptionalValue) {
-		$("ul", attributesAndOptionalValue);
+	public XHtml ul(Object... params) {
+		$("ul", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>ol</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T ol(Object... attributesAndOptionalValue) {
-		$("ol", attributesAndOptionalValue);
+	public XHtml ol(Object... params) {
+		$("ol", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>li</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T li(Object... attributesAndOptionalValue) {
-		$("li", attributesAndOptionalValue);
+	public XHtml li(Object... params) {
+		$("li", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>dl</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T dl(Object... attributesAndOptionalValue) {
-		$("dl", attributesAndOptionalValue);
+	public XHtml dl(Object... params) {
+		$("dl", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>dt</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T dt(Object... attributesAndOptionalValue) {
-		$("dt", attributesAndOptionalValue);
+	public XHtml dt(Object... params) {
+		$("dt", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>dd</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T dd(Object... attributesAndOptionalValue) {
-		$("dd", attributesAndOptionalValue);
+	public XHtml dd(Object... params) {
+		$("dd", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>address</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T address(Object... attributesAndOptionalValue) {
-		$("address", attributesAndOptionalValue);
+	public XHtml address(Object... params) {
+		$("address", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>hr</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T hr(Object... attributesAndOptionalValue) {
-		$("hr", attributesAndOptionalValue);
+	public XHtml hr(Object... params) {
+		$("hr", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>pre</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T pre(Object... attributesAndOptionalValue) {
-		$("pre", attributesAndOptionalValue);
+	public XHtml pre(Object... params) {
+		$("pre", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>blockquote</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T blockquote(Object... attributesAndOptionalValue) {
-		$("blockquote", attributesAndOptionalValue);
+	public XHtml blockquote(Object... params) {
+		$("blockquote", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>ins</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T ins(Object... attributesAndOptionalValue) {
-		$("ins", attributesAndOptionalValue);
+	public XHtml ins(Object... params) {
+		$("ins", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>del</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T del(Object... attributesAndOptionalValue) {
-		$("del", attributesAndOptionalValue);
+	public XHtml del(Object... params) {
+		$("del", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>a</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T a(Object... attributesAndOptionalValue) {
-		$("a", attributesAndOptionalValue);
+	public XHtml a(Object... params) {
+		$("a", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>span</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T span(Object... attributesAndOptionalValue) {
-		$("span", attributesAndOptionalValue);
+	public XHtml span(Object... params) {
+		$("span", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>bdo</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T bdo(Object... attributesAndOptionalValue) {
-		$("bdo", attributesAndOptionalValue);
+	public XHtml bdo(Object... params) {
+		$("bdo", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>br</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T br(Object... attributesAndOptionalValue) {
-		$("br", attributesAndOptionalValue);
+	public XHtml br(Object... params) {
+		$("br", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>em</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T em(Object... attributesAndOptionalValue) {
-		$("em", attributesAndOptionalValue);
+	public XHtml em(Object... params) {
+		$("em", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>strong</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T strong(Object... attributesAndOptionalValue) {
-		$("strong", attributesAndOptionalValue);
+	public XHtml strong(Object... params) {
+		$("strong", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>dfn</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T dfn(Object... attributesAndOptionalValue) {
-		$("dfn", attributesAndOptionalValue);
+	public XHtml dfn(Object... params) {
+		$("dfn", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>code</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T code(Object... attributesAndOptionalValue) {
-		$("code", attributesAndOptionalValue);
+	public XHtml code(Object... params) {
+		$("code", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>samp</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T samp(Object... attributesAndOptionalValue) {
-		$("samp", attributesAndOptionalValue);
+	public XHtml samp(Object... params) {
+		$("samp", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>kbd</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T kbd(Object... attributesAndOptionalValue) {
-		$("kbd", attributesAndOptionalValue);
+	public XHtml kbd(Object... params) {
+		$("kbd", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>var</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T var(Object... attributesAndOptionalValue) {
-		$("var", attributesAndOptionalValue);
+	public XHtml var(Object... params) {
+		$("var", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>cite</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T cite(Object... attributesAndOptionalValue) {
-		$("cite", attributesAndOptionalValue);
+	public XHtml cite(Object... params) {
+		$("cite", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>abbr</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T abbr(Object... attributesAndOptionalValue) {
-		$("abbr", attributesAndOptionalValue);
+	public XHtml abbr(Object... params) {
+		$("abbr", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>acronym</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T acronym(Object... attributesAndOptionalValue) {
-		$("acronym", attributesAndOptionalValue);
+	public XHtml acronym(Object... params) {
+		$("acronym", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>q</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T q(Object... attributesAndOptionalValue) {
-		$("q", attributesAndOptionalValue);
+	public XHtml q(Object... params) {
+		$("q", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>sub</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T sub(Object... attributesAndOptionalValue) {
-		$("sub", attributesAndOptionalValue);
+	public XHtml sub(Object... params) {
+		$("sub", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>sup</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T sup(Object... attributesAndOptionalValue) {
-		$("sup", attributesAndOptionalValue);
+	public XHtml sup(Object... params) {
+		$("sup", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>tt</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T tt(Object... attributesAndOptionalValue) {
-		$("tt", attributesAndOptionalValue);
+	public XHtml tt(Object... params) {
+		$("tt", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>i</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T i(Object... attributesAndOptionalValue) {
-		$("i", attributesAndOptionalValue);
+	public XHtml i(Object... params) {
+		$("i", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>b</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T b(Object... attributesAndOptionalValue) {
-		$("b", attributesAndOptionalValue);
+	public XHtml b(Object... params) {
+		$("b", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>big</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T big(Object... attributesAndOptionalValue) {
-		$("big", attributesAndOptionalValue);
+	public XHtml big(Object... params) {
+		$("big", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>small</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T small(Object... attributesAndOptionalValue) {
-		$("small", attributesAndOptionalValue);
+	public XHtml small(Object... params) {
+		$("small", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>object</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T object(Object... attributesAndOptionalValue) {
-		$("object", attributesAndOptionalValue);
+	public XHtml object(Object... params) {
+		$("object", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>param</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T param(Object... attributesAndOptionalValue) {
-		$("param", attributesAndOptionalValue);
+	public XHtml param(Object... params) {
+		$("param", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>img</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T img(Object... attributesAndOptionalValue) {
-		$("img", attributesAndOptionalValue);
+	public XHtml img(Object... params) {
+		$("img", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>map</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T map(Object... attributesAndOptionalValue) {
-		$("map", attributesAndOptionalValue);
+	public XHtml map(Object... params) {
+		$("map", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>area</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T area(Object... attributesAndOptionalValue) {
-		$("area", attributesAndOptionalValue);
+	public XHtml area(Object... params) {
+		$("area", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>form</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T form(Object... attributesAndOptionalValue) {
-		$("form", attributesAndOptionalValue);
+	public XHtml form(Object... params) {
+		$("form", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>label</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T label(Object... attributesAndOptionalValue) {
-		$("label", attributesAndOptionalValue);
+	public XHtml label(Object... params) {
+		$("label", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>input</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T input(Object... attributesAndOptionalValue) {
-		$("input", attributesAndOptionalValue);
+	public XHtml input(Object... params) {
+		$("input", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>select</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T select(Object... attributesAndOptionalValue) {
-		$("select", attributesAndOptionalValue);
+	public XHtml select(Object... params) {
+		$("select", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>optgroup</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T optgroup(Object... attributesAndOptionalValue) {
-		$("optgroup", attributesAndOptionalValue);
+	public XHtml optgroup(Object... params) {
+		$("optgroup", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>option</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T option(Object... attributesAndOptionalValue) {
-		$("option", attributesAndOptionalValue);
+	public XHtml option(Object... params) {
+		$("option", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>textarea</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T textarea(Object... attributesAndOptionalValue) {
-		$("textarea", attributesAndOptionalValue);
+	public XHtml textarea(Object... params) {
+		$("textarea", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>fieldset</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T fieldset(Object... attributesAndOptionalValue) {
-		$("fieldset", attributesAndOptionalValue);
+	public XHtml fieldset(Object... params) {
+		$("fieldset", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>legend</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T legend(Object... attributesAndOptionalValue) {
-		$("legend", attributesAndOptionalValue);
+	public XHtml legend(Object... params) {
+		$("legend", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>button</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T button(Object... attributesAndOptionalValue) {
-		$("button", attributesAndOptionalValue);
+	public XHtml button(Object... params) {
+		$("button", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>table</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T table(Object... attributesAndOptionalValue) {
-		$("table", attributesAndOptionalValue);
+	public XHtml table(Object... params) {
+		$("table", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>caption</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T caption(Object... attributesAndOptionalValue) {
-		$("caption", attributesAndOptionalValue);
+	public XHtml caption(Object... params) {
+		$("caption", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>thead</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T thead(Object... attributesAndOptionalValue) {
-		$("thead", attributesAndOptionalValue);
+	public XHtml thead(Object... params) {
+		$("thead", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>tfoot</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T tfoot(Object... attributesAndOptionalValue) {
-		$("tfoot", attributesAndOptionalValue);
+	public XHtml tfoot(Object... params) {
+		$("tfoot", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>tbody</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T tbody(Object... attributesAndOptionalValue) {
-		$("tbody", attributesAndOptionalValue);
+	public XHtml tbody(Object... params) {
+		$("tbody", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>colgroup</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T colgroup(Object... attributesAndOptionalValue) {
-		$("colgroup", attributesAndOptionalValue);
+	public XHtml colgroup(Object... params) {
+		$("colgroup", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>col</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T col(Object... attributesAndOptionalValue) {
-		$("col", attributesAndOptionalValue);
+	public XHtml col(Object... params) {
+		$("col", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>tr</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T tr(Object... attributesAndOptionalValue) {
-		$("tr", attributesAndOptionalValue);
+	public XHtml tr(Object... params) {
+		$("tr", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>th</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T th(Object... attributesAndOptionalValue) {
-		$("th", attributesAndOptionalValue);
+	public XHtml th(Object... params) {
+		$("th", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>td</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T td(Object... attributesAndOptionalValue) {
-		$("td", attributesAndOptionalValue);
+	public XHtml td(Object... params) {
+		$("td", params);
 		return _this();
 	}
 }

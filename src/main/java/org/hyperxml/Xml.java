@@ -1,35 +1,42 @@
 package org.hyperxml;
 
+import java.io.OutputStream;
+import java.io.Writer;
 import java.util.LinkedList;
+
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.sax.SAXTransformerFactory;
+import javax.xml.transform.sax.TransformerHandler;
+import javax.xml.transform.stream.StreamResult;
 
 import org.xml.sax.ContentHandler;
 import org.xml.sax.helpers.AttributesImpl;
 
 /**
- * Writes arbitrary xml to a {@link ContentHandler} destination using only one
- * method {@link #$(String, Object...)}.
+ * Writes arbitrary xml with only the method {@link #$(String, Object...)}.
  * <p>
  * <code>$()</code> expects its parameters as follows:
- * <p>
- * <img border="1" src="doc-files/sugar4xml_element_method.png">
  * <p>
  * Example:
  * 
  * <pre>
  * $("html");
  * {
- *   $("body");
+ *   $("body", "onload", "doThings()");               // attribute name-value pairs
  *   {
- *      $("h1", "hello world", $);
+ *      $("h1", "class", "title", "hello world", $);  // with text content, $ --&gt; 'short close' 
  *   }
- *   $();
+ *   $(); // body                                     // no parameters --&gt; end element
  * }
- * $();
+ * $(); // html
  * 
  * --&gt;
  * 
- * &lt;page&gt;&lt;body&gt;&lt;h1&gt;hello world&lt;/h1&gt;&lt;/body&gt;&lt;/page&gt;
- * 
+ * &lt;html&gt;
+ *   &lt;body onload=&quot;doThings()&quot;&gt;
+ *     &lt;h1 class=&quot;title&quot;&gt;hello world&lt;/h1&gt;
+ *   &lt;/body&gt;
+ * &lt;/html&gt;
  * </pre>
  * 
  * @author krizzdewizz
@@ -41,10 +48,6 @@ public class Xml<T extends Xml<?>> {
 	 */
 	public static class Default extends Xml<Default> {
 		public Default() {
-		}
-
-		public Default(ContentHandler contentHandler) {
-			super(contentHandler);
 		}
 	}
 
@@ -69,7 +72,7 @@ public class Xml<T extends Xml<?>> {
 	/**
 	 * If given as last argument to {@link #$(String, Object...)}, will call
 	 * {@link #$()} just after starting the element (auto-end). Resembles XML
-	 * short closing of tags like <code>&lt;x/&gt;</code> ->
+	 * short closing of tags like <code>&lt;x/&gt;</code> --&gt;
 	 * <code>$("x", $)</code>.
 	 */
 	public static final Object $ = new Object();
@@ -89,7 +92,8 @@ public class Xml<T extends Xml<?>> {
 	 * </pre>
 	 * 
 	 * @param prefix
-	 * @return String
+	 *            The prefix for the namespace declaration
+	 * @return <code>xmlns:&lt;prefix&gt;</code>
 	 */
 	public static String xmlns(Object prefix) {
 		return new StringBuilder(xmlns).append(':').append(prefix).toString();
@@ -109,8 +113,10 @@ public class Xml<T extends Xml<?>> {
 	 * </pre>
 	 * 
 	 * @param prefix
+	 *            The namespace prefix
 	 * @param name
-	 * @return String
+	 *            The attribute name
+	 * @return <code>&lt;prefix&gt;:&lt;name&gt;</code>
 	 */
 	public static String nsattr(String prefix, String name) {
 		return new StringBuilder(prefix).append(':').append(name).toString();
@@ -142,43 +148,73 @@ public class Xml<T extends Xml<?>> {
 		return obj == null ? null : String.valueOf(obj);
 	}
 
-	/**
-	 * Constructs with a <code>null</code> writer.
-	 * <p>
-	 * Note that {@link #setContentHandler(ContentHandler)} must be called
-	 * before the xml is created or else a {@link HyperXmlException} will occur.
-	 */
 	public Xml() {
-		this(null);
-	}
-
-	/**
-	 * Constructs with the given contentHandler.
-	 * 
-	 * @param writer
-	 *            Where to write this xml to
-	 */
-	public Xml(ContentHandler contentHandler) {
-		_contentHandler = contentHandler;
 		_defaultElementNsPrefix = "";
 		_stack = new LinkedList<String>();
 		_attrs = new AttributesImpl();
 	}
 
 	/**
-	 * Builds this xml by calling {@link #create()}.
+	 * Builds this xml by calling {@link #create()} using the given content
+	 * handler.
+	 * <p>
+	 * May be called several times.
 	 * 
-	 * @return <code>this</code>
-	 * @throws HyperXmlException
-	 *             if <code>$()</code> and <code>$()</code> calls do not match
-	 *             (mal-formed xml output).
+	 * @param contentHandler
+	 *            To where to write this xml to
+	 * @return this
 	 */
-	public T build() {
-		create();
-		checkStack();
-		return _this();
+	public T build(ContentHandler contentHandler) {
+		try {
+			_contentHandler = contentHandler;
+			create();
+			checkStack();
+			return _this();
+		} finally {
+			_contentHandler = null;
+		}
 	}
 
+	/**
+	 * Builds the xml by transforming it to the given output stream.
+	 * <p>
+	 * May be called several times.
+	 * 
+	 * @param out
+	 *            destination
+	 * @return this
+	 */
+	public T build(OutputStream out) {
+		return build(new StreamResult(out));
+	}
+
+	/**
+	 * Builds the xml by transforming it to the given writer.
+	 * <p>
+	 * May be called several times.
+	 * 
+	 * @param out
+	 *            destination
+	 * @return this
+	 */
+	public T build(Writer out) {
+		return build(new StreamResult(out));
+	}
+
+	private T build(StreamResult result) {
+		try {
+			SAXTransformerFactory f = (SAXTransformerFactory) TransformerFactory.newInstance();
+			TransformerHandler handler = f.newTransformerHandler();
+			handler.setResult(result);
+			return build(handler);
+		} catch (Exception e) {
+			throw HyperXmlException.wrap(e);
+		}
+	}
+
+	/**
+	 * Maybe overridden by subclasses.
+	 */
 	protected void create() {
 	}
 
@@ -207,6 +243,7 @@ public class Xml<T extends Xml<?>> {
 	 * Outputs the given text using a <code>character()</code> call.
 	 * 
 	 * @param text
+	 *            The text to output
 	 * @return <code>this</code>
 	 */
 	public T text(String text) {
@@ -218,8 +255,11 @@ public class Xml<T extends Xml<?>> {
 	 * Outputs the given characters.
 	 * 
 	 * @param ch
+	 *            char array
 	 * @param start
+	 *            Start
 	 * @param length
+	 *            Length
 	 * @return <code>this</code>
 	 * @see ContentHandler#characters(char[], int, int)
 	 */
@@ -234,25 +274,24 @@ public class Xml<T extends Xml<?>> {
 
 	/**
 	 * Starts an element (namespace element with an empty prefix), its
-	 * attributes and an optional value. If the last argument is {@link @#$},
-	 * will call {@link #$()} just after starting the element (auto-end).
-	 * <p>
-	 * <img border="1" src="doc-files/sugar4xml_element_method.png">
+	 * attributes and an optional value. If the last argument is <code>$</code>,
+	 * will call {@link #$(String, Object...)} w/o parameters, just after
+	 * starting the element (auto-end).
 	 * 
 	 * @param name
 	 *            The name of the element
-	 * @param attributesAndOptionalValue
+	 * @param params
 	 *            attribute [name, value] pairs, optionally followed by a single
-	 *            value.If the last argument is {@link @#$}, will call
-	 *            {@link #$()} just after starting the element (auto-end). If
-	 *            the length of the array is odd, the last element designates
-	 *            the value for the element. May be empty. An attribute name may
-	 *            be namespace-prefixed.
+	 *            value.If the last argument is <code>$</code>, will call
+	 *            {@link #$(String, Object...)} w/o parameters, just after
+	 *            starting the element (auto-end). If the length of the array is
+	 *            odd, the last element designates the value for the element.
+	 *            May be empty. An attribute name may be namespace-prefixed.
 	 * @return <code>this</code>
 	 * @see #$$(String, String, Object...)
 	 */
-	public T $(String name, Object... attributesAndOptionalValue) {
-		return $$("", name, attributesAndOptionalValue);
+	public T $(String name, Object... params) {
+		return $$("", name, params);
 	}
 
 	/**
@@ -264,14 +303,14 @@ public class Xml<T extends Xml<?>> {
 	 *            {@link #getDefaultElementNsPrefix()} is used instead
 	 * @param name
 	 *            The name of the element
-	 * @param attributesAndOptionalValue
+	 * @param params
 	 *            attribute [name, value] pairs, optionally followed by a single
 	 *            value. If the length of the array is odd, the last element
 	 *            designates the value for the element. May be empty. An
 	 *            attribute name may be namespace-prefixed.
 	 * @return <code>this</code>
 	 */
-	public T $$(String nsPrefix, String name, Object... attributesAndOptionalValue) {
+	public T $$(String nsPrefix, String name, Object... params) {
 		try {
 
 			if (nsPrefix == null || nsPrefix.isEmpty()) {
@@ -285,12 +324,12 @@ public class Xml<T extends Xml<?>> {
 
 			_attrs.clear();
 			String elementValue = null;
-			int nParams = attributesAndOptionalValue.length;
+			int nParams = params.length;
 			boolean endElement = false;
 
 			if (nParams > 0) {
 
-				if (attributesAndOptionalValue[nParams - 1] == $) {
+				if (params[nParams - 1] == $) {
 					endElement = true;
 					nParams--;
 				}
@@ -299,7 +338,7 @@ public class Xml<T extends Xml<?>> {
 
 				if (paramsOdd) {
 					// last
-					elementValue = toString(attributesAndOptionalValue[nParams - 1]);
+					elementValue = toString(params[nParams - 1]);
 				}
 
 				if (nParams > 1) {
@@ -307,8 +346,8 @@ public class Xml<T extends Xml<?>> {
 						nParams--;
 					}
 					for (int i = 0; i < nParams; i += 2) {
-						String attrQName = toString(attributesAndOptionalValue[i]);
-						String attrValue = toString(attributesAndOptionalValue[i + 1]);
+						String attrQName = toString(params[i]);
+						String attrValue = toString(params[i + 1]);
 
 						if (attrValue != null) {
 							_attrs.addAttribute("", "", attrQName, "", attrValue);
@@ -394,15 +433,25 @@ public class Xml<T extends Xml<?>> {
 	 * Sets the default prefix for all elements written if no prefix is given.
 	 * 
 	 * @param defaultElementNsPrefix
+	 *            The default prefix
 	 */
 	public void setDefaultElementNsPrefix(String defaultElementNsPrefix) {
 		_defaultElementNsPrefix = defaultElementNsPrefix == null ? "" : defaultElementNsPrefix;
 	}
 
+	/**
+	 * The current content handler.
+	 * 
+	 * @return contentHandler, non-null only during <code>build()</code> calls.
+	 */
 	public ContentHandler getContentHandler() {
 		return _contentHandler;
 	}
 
+	/**
+	 * @param contentHandler
+	 *            nullable
+	 */
 	public void setContentHandler(ContentHandler contentHandler) {
 		_contentHandler = contentHandler;
 	}

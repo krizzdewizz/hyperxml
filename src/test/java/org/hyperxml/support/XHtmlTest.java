@@ -16,18 +16,14 @@
 package org.hyperxml.support;
 
 import org.hyperxml.AbstractXmlTest;
-import org.hyperxml.support.XHtml;
 
 /**
  * @author krizzdewizz
  */
 public class XHtmlTest extends AbstractXmlTest {
 
-	private abstract static class MyXml extends XHtml<MyXml> {
-	}
-
 	public void testDoc() throws Exception {
-		MyXml xml = new MyXml() {
+		XHtml xml = new XHtml() {
 			protected void create() {
 				html();
 				{

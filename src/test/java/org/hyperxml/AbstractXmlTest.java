@@ -32,24 +32,16 @@ import org.xml.sax.ContentHandler;
  * @author krizzdewizz
  */
 abstract public class AbstractXmlTest extends XMLTestCase {
-	public static ContentHandler createContentHandler(Writer out) {
-		try {
-			SAXTransformerFactory f = (SAXTransformerFactory) TransformerFactory.newInstance();
-			TransformerHandler h = f.newTransformerHandler();
-
-			h.setResult(new StreamResult(out));
-
-			return h;
-		} catch (Exception e) {
-			throw Xml.HyperXmlException.wrap(e);
-		}
+	public static ContentHandler createContentHandler(Writer out) throws Exception {
+		SAXTransformerFactory f = (SAXTransformerFactory) TransformerFactory.newInstance();
+		TransformerHandler handler = f.newTransformerHandler();
+		handler.setResult(new StreamResult(out));
+		return handler;
 	}
 
-	protected static String createXmlContent(Xml<?> xml) {
+	protected static String createXmlContent(Xml<?> xml) throws Exception {
 		StringWriter out = new StringWriter();
-		ContentHandler handler = createContentHandler(out);
-		xml.setContentHandler(handler);
-		xml.build();
+		xml.build(out);
 		return out.toString();
 	}
 

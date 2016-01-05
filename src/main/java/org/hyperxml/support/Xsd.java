@@ -16,12 +16,11 @@
 package org.hyperxml.support;
 
 import org.hyperxml.Xml;
-import org.xml.sax.ContentHandler;
 
 /**
  * Elements and attributes contained in <code>XMLSchema.xsd.dat</code>. <br>
  */
-abstract public class Xsd<T extends Xsd<?>> extends Xml<T> {
+abstract public class Xsd extends Xml<Xsd> {
 	/**
 	 * The target namespace <code>http://www.w3.org/2001/XMLSchema</code>.
 	 */
@@ -234,427 +233,549 @@ abstract public class Xsd<T extends Xsd<?>> extends Xml<T> {
 	public Xsd() {
 	}
 
-	public Xsd(ContentHandler writer) {
-		super(writer);
-	}
-
 	/**
 	 * The <code>schema</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T schema(Object... attributesAndOptionalValue) {
-		$("schema", attributesAndOptionalValue);
+	public Xsd schema(Object... params) {
+		$("schema", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>group</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T group(Object... attributesAndOptionalValue) {
-		$("group", attributesAndOptionalValue);
+	public Xsd group(Object... params) {
+		$("group", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>element</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T elementt(Object... attributesAndOptionalValue) {
-		$("element", attributesAndOptionalValue);
+	public Xsd elementt(Object... params) {
+		$("element", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>simpleType</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T simpleType(Object... attributesAndOptionalValue) {
-		$("simpleType", attributesAndOptionalValue);
+	public Xsd simpleType(Object... params) {
+		$("simpleType", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>attribute</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T attribute(Object... attributesAndOptionalValue) {
-		$("attribute", attributesAndOptionalValue);
+	public Xsd attribute(Object... params) {
+		$("attribute", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>attributeGroup</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T attributeGroup(Object... attributesAndOptionalValue) {
-		$("attributeGroup", attributesAndOptionalValue);
+	public Xsd attributeGroup(Object... params) {
+		$("attributeGroup", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>anyAttribute</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T anyAttribute(Object... attributesAndOptionalValue) {
-		$("anyAttribute", attributesAndOptionalValue);
+	public Xsd anyAttribute(Object... params) {
+		$("anyAttribute", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>complexContent</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T complexContent(Object... attributesAndOptionalValue) {
-		$("complexContent", attributesAndOptionalValue);
+	public Xsd complexContent(Object... params) {
+		$("complexContent", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>restriction</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T restriction(Object... attributesAndOptionalValue) {
-		$("restriction", attributesAndOptionalValue);
+	public Xsd restriction(Object... params) {
+		$("restriction", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>extension</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T extension(Object... attributesAndOptionalValue) {
-		$("extension", attributesAndOptionalValue);
+	public Xsd extension(Object... params) {
+		$("extension", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>simpleContent</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T simpleContent(Object... attributesAndOptionalValue) {
-		$("simpleContent", attributesAndOptionalValue);
+	public Xsd simpleContent(Object... params) {
+		$("simpleContent", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>complexType</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T complexType(Object... attributesAndOptionalValue) {
-		$("complexType", attributesAndOptionalValue);
+	public Xsd complexType(Object... params) {
+		$("complexType", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>all</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T all(Object... attributesAndOptionalValue) {
-		$("all", attributesAndOptionalValue);
+	public Xsd all(Object... params) {
+		$("all", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>choice</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T choice(Object... attributesAndOptionalValue) {
-		$("choice", attributesAndOptionalValue);
+	public Xsd choice(Object... params) {
+		$("choice", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>sequence</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T sequence(Object... attributesAndOptionalValue) {
-		$("sequence", attributesAndOptionalValue);
+	public Xsd sequence(Object... params) {
+		$("sequence", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>any</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T any(Object... attributesAndOptionalValue) {
-		$("any", attributesAndOptionalValue);
+	public Xsd any(Object... params) {
+		$("any", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>include</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T include(Object... attributesAndOptionalValue) {
-		$("include", attributesAndOptionalValue);
+	public Xsd include(Object... params) {
+		$("include", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>redefine</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T redefine(Object... attributesAndOptionalValue) {
-		$("redefine", attributesAndOptionalValue);
+	public Xsd redefine(Object... params) {
+		$("redefine", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>import</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T importt(Object... attributesAndOptionalValue) {
-		$("import", attributesAndOptionalValue);
+	public Xsd importt(Object... params) {
+		$("import", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>selector</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T selector(Object... attributesAndOptionalValue) {
-		$("selector", attributesAndOptionalValue);
+	public Xsd selector(Object... params) {
+		$("selector", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>field</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T field(Object... attributesAndOptionalValue) {
-		$("field", attributesAndOptionalValue);
+	public Xsd field(Object... params) {
+		$("field", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>unique</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T unique(Object... attributesAndOptionalValue) {
-		$("unique", attributesAndOptionalValue);
+	public Xsd unique(Object... params) {
+		$("unique", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>key</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T key(Object... attributesAndOptionalValue) {
-		$("key", attributesAndOptionalValue);
+	public Xsd key(Object... params) {
+		$("key", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>keyref</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T keyref(Object... attributesAndOptionalValue) {
-		$("keyref", attributesAndOptionalValue);
+	public Xsd keyref(Object... params) {
+		$("keyref", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>notation</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T notation(Object... attributesAndOptionalValue) {
-		$("notation", attributesAndOptionalValue);
+	public Xsd notation(Object... params) {
+		$("notation", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>appinfo</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T appinfo(Object... attributesAndOptionalValue) {
-		$("appinfo", attributesAndOptionalValue);
+	public Xsd appinfo(Object... params) {
+		$("appinfo", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>documentation</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T documentation(Object... attributesAndOptionalValue) {
-		$("documentation", attributesAndOptionalValue);
+	public Xsd documentation(Object... params) {
+		$("documentation", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>annotation</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T annotation(Object... attributesAndOptionalValue) {
-		$("annotation", attributesAndOptionalValue);
+	public Xsd annotation(Object... params) {
+		$("annotation", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>list</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T list(Object... attributesAndOptionalValue) {
-		$("list", attributesAndOptionalValue);
+	public Xsd list(Object... params) {
+		$("list", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>union</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T union(Object... attributesAndOptionalValue) {
-		$("union", attributesAndOptionalValue);
+	public Xsd union(Object... params) {
+		$("union", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>minExclusive</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T minExclusive(Object... attributesAndOptionalValue) {
-		$("minExclusive", attributesAndOptionalValue);
+	public Xsd minExclusive(Object... params) {
+		$("minExclusive", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>minInclusive</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T minInclusive(Object... attributesAndOptionalValue) {
-		$("minInclusive", attributesAndOptionalValue);
+	public Xsd minInclusive(Object... params) {
+		$("minInclusive", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>maxExclusive</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T maxExclusive(Object... attributesAndOptionalValue) {
-		$("maxExclusive", attributesAndOptionalValue);
+	public Xsd maxExclusive(Object... params) {
+		$("maxExclusive", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>maxInclusive</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T maxInclusive(Object... attributesAndOptionalValue) {
-		$("maxInclusive", attributesAndOptionalValue);
+	public Xsd maxInclusive(Object... params) {
+		$("maxInclusive", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>totalDigits</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T totalDigits(Object... attributesAndOptionalValue) {
-		$("totalDigits", attributesAndOptionalValue);
+	public Xsd totalDigits(Object... params) {
+		$("totalDigits", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>fractionDigits</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T fractionDigits(Object... attributesAndOptionalValue) {
-		$("fractionDigits", attributesAndOptionalValue);
+	public Xsd fractionDigits(Object... params) {
+		$("fractionDigits", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>length</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T length(Object... attributesAndOptionalValue) {
-		$("length", attributesAndOptionalValue);
+	public Xsd length(Object... params) {
+		$("length", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>minLength</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T minLength(Object... attributesAndOptionalValue) {
-		$("minLength", attributesAndOptionalValue);
+	public Xsd minLength(Object... params) {
+		$("minLength", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>maxLength</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T maxLength(Object... attributesAndOptionalValue) {
-		$("maxLength", attributesAndOptionalValue);
+	public Xsd maxLength(Object... params) {
+		$("maxLength", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>enumeration</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T enumeration(Object... attributesAndOptionalValue) {
-		$("enumeration", attributesAndOptionalValue);
+	public Xsd enumeration(Object... params) {
+		$("enumeration", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>whiteSpace</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T whiteSpace(Object... attributesAndOptionalValue) {
-		$("whiteSpace", attributesAndOptionalValue);
+	public Xsd whiteSpace(Object... params) {
+		$("whiteSpace", params);
 		return _this();
 	}
 
 	/**
 	 * The <code>pattern</code> element.
 	 * 
+	 * @param params
+	 *            Parameters
+	 * @return this
 	 * @see Xml#$(String, Object...)
 	 */
-	public T pattern(Object... attributesAndOptionalValue) {
-		$("pattern", attributesAndOptionalValue);
+	public Xsd pattern(Object... params) {
+		$("pattern", params);
 		return _this();
 	}
 }
