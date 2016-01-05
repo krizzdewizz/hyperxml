@@ -1,5 +1,5 @@
 # hyperxml
-Builds arbitrary XML with only the method `$`.
+Simple SAX-like XML builder, using only a single method `$` for most cases.
 
 ## Usage
 Create a subclass of `Xml.Default` and override the `create()` method:
@@ -41,7 +41,9 @@ will produce:
 
 Other build destinations are `OutputStream` and the generic `ContentHandler`.
 
-Though nesting the `$` calls with empty braces seems like one forgot an `if` or so, it is recommended for better readbility.
+No DOM or whatsoever is created. `$` calls translate directly to SAX `ContentHandler` `startElement` / `endElement` calls.
+
+Though nesting the `$` calls with empty braces seems like one forgot an `if` or so, it is recommended for better readability.
 
 End-element calls (`$` with no parameters) do not need the element name, as this is handled by `Xml`. 
 A runtime error will occur upon start/end call mismatch. For better maintenance, it is recommended to comment the end element call though.
