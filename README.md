@@ -1,5 +1,5 @@
 # hyperxml
-Simple SAX-like XML builder, using only a single method `$` for most cases.
+Simple SAX-like XML builder.
 
 ## Usage
 Create a subclass of `Xml.Default` and override the `create()` method:
