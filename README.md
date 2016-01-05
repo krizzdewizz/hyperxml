@@ -2,10 +2,10 @@
 Simple SAX-like XML builder.
 
 ## Usage
-Create a subclass of `Xml.Default` and override the `create()` method:
+Create a subclass of `Xml` and override the `create()` method:
 
 ```
-Xml.Default xml = new Xml.Default() {
+Xml xml = new Xml() {
     protected void create() {
         
         $("html");
