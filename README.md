@@ -1,5 +1,5 @@
 # hyperxml
-Writes arbitrary xml with only the method `$`.
+Builds arbitrary XML with only the method `$`.
 
 ## Usage
 Create a subclass of `Xml.Default` and override the `create()` method:
@@ -43,8 +43,8 @@ Other build destinations are `OutputStream` and the generic `ContentHandler`.
 
 Though nesting the `$` calls with empty braces seems like one forgot an `if` or so, it is recommended for better readbility.
 
-End-Element calls (`$` with no parameters) do not need the element name, as this is handled by `Xml`. 
-A runtime error will occur upon start/end call mismatch. For better maintenance, it is recommended to comment the end element though.
+End-element calls (`$` with no parameters) do not need the element name, as this is handled by `Xml`. 
+A runtime error will occur upon start/end call mismatch. For better maintenance, it is recommended to comment the end element call though.
 
 
 ## (X)HTML support
@@ -89,4 +89,5 @@ will produce:
 </html>
 ```
 
-`XHtml` provides a method for each known (X)HTML element and a constant for each known (X)HTML attribute. You can freely mix it with generic `$()` calls.
+`XHtml` provides a method for each known (X)HTML element and a constant for each known (X)HTML attribute. You can freely mix it with generic `$` calls.
+
