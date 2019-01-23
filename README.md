@@ -1,5 +1,5 @@
 # hyperxml
-Simple SAX-like XML builder.
+Simple SAX-like XML builder using only the method `$()`.
 
 ## Usage
 Create a subclass of `Xml` and override the `create()` method:
@@ -50,10 +50,10 @@ A runtime error will occur upon start/end call mismatch. For better maintenance,
 
 
 ## (X)HTML support
-For easier building of (X)HTML output, subclass `XHtml` instead: 
+For easier building of HTML output, subclass `Html` instead:
 
 ```
-XHtml xml = new XHtml() {
+Html xml = new Html() {
     protected void create() {
         html();
         {
@@ -91,5 +91,5 @@ will produce:
 </html>
 ```
 
-`XHtml` provides a method for each known (X)HTML element and a constant for each known (X)HTML attribute. You can freely mix it with generic `$` calls.
+`Html` provides a method for each known HTML element and a constant for each known HTML attribute. You can freely mix it with generic `$` calls.
 
