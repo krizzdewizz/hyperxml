@@ -1,5 +1,5 @@
 # hyperxml
-Simple SAX-like XML builder using only the method `$()`.
+Hyper simple and light weight XML/HTML builder using only the method `$()`.
 
 ## Usage
 Create a subclass of `Xml` and override the `create()` method:
@@ -49,7 +49,7 @@ End-element calls (`$` with no parameters) do not need the element name, as this
 A runtime error will occur upon start/end call mismatch. For better maintenance, it is recommended to comment the end element call though.
 
 
-## (X)HTML support
+## HTML support
 For easier building of HTML output, subclass `Html` instead:
 
 ```
