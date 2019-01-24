@@ -93,3 +93,36 @@ will produce:
 
 `Html` provides a method for each known HTML element and a constant for each known HTML attribute. You can freely mix it with generic `$` calls.
 
+## Distribution
+
+You can download the binaries from [here](https://github.com/krizzdewizz/hyperxml/releases) or via jitpack.io:
+
+`build.gradle`:
+```
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    implementation("com.github.krizzdewizz:hyperxml:2.0.0")
+}
+```
+
+`pom.xml`:
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependency>
+    <groupId>com.github.krizzdewizz</groupId>
+    <artifactId>hyperxml</artifactId>
+    <version>2.0.0</version>
+</dependency>
+```
+
+
+
