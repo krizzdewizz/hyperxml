@@ -4,7 +4,7 @@ Hyper simple and light weight XML/HTML builder using only the method `$()`.
 ## Usage
 Create a subclass of `Xml` and override the `create()` method:
 
-```
+```java
 Xml xml = new Xml() {
     protected void create() {
         
@@ -24,14 +24,14 @@ Xml xml = new Xml() {
 ```
 
 Build the XML by transforming it to a `Writer`:
-```
+```java
 StringWriter out = new StringWriter();
 xml.build(out);
 System.out.println(out);
 ```
 
 will produce:
-```
+```html
 <html>
     <body onload="doThings()">
         <h1 class="title">hello world</h1>
@@ -52,8 +52,8 @@ A runtime error will occur upon start/end call mismatch. For better maintenance,
 ## HTML support
 For easier building of HTML output, subclass `Html` instead:
 
-```
-Html xml = new Html() {
+```java
+Html html = new Html() {
     protected void create() {
         html();
         {
@@ -81,7 +81,7 @@ Html xml = new Html() {
 ```
 
 will produce:
-```
+```html
 <html>
     <style>.title{color:red;}</style>
     <script>function doThings() { alert('done'); }</script>
