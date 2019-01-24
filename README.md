@@ -104,7 +104,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.krizzdewizz:hyperxml:2.0.0")
+    implementation("com.github.krizzdewizz:hyperxml:2.1.0")
 }
 ```
 
@@ -120,7 +120,7 @@ dependencies {
 <dependency>
     <groupId>com.github.krizzdewizz</groupId>
     <artifactId>hyperxml</artifactId>
-    <version>2.0.0</version>
+    <version>2.1.0</version>
 </dependency>
 ```
 

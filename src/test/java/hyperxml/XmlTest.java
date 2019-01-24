@@ -240,6 +240,34 @@ public class XmlTest extends AbstractXmlTest {
 		myAssertXMLEqual("<page><body>abc</body></page>", result);
 	}
 
+	public void testTextWithEnd() throws Exception {
+		StringWriter out = new StringWriter();
+		Xml x = new Xml();
+		x.setContentHandler(createContentHandler(out));
+		/* @formatter:off */
+		x.$("page")
+			.$("body").text("abc", 1, Xml.$)
+		.$();
+		/* @formatter:on */
+
+		String result = out.toString();
+		myAssertXMLEqual("<page><body>abc1</body></page>", result);
+	}
+
+	public void testTextOnlyEnd() throws Exception {
+		StringWriter out = new StringWriter();
+		Xml x = new Xml();
+		x.setContentHandler(createContentHandler(out));
+		/* @formatter:off */
+		x.$("page")
+			.$("body").text(Xml.$)
+		.$();
+		/* @formatter:on */
+
+		String result = out.toString();
+		myAssertXMLEqual("<page><body></body></page>", result);
+	}
+
 	public void testMore453abc() throws Exception {
 		Xml xml = new Xml() {
 			protected void create() {

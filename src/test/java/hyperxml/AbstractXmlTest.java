@@ -26,7 +26,6 @@ import javax.xml.transform.stream.StreamResult;
 import org.custommonkey.xmlunit.Diff;
 import org.custommonkey.xmlunit.XMLTestCase;
 import org.custommonkey.xmlunit.XMLUnit;
-import hyperxml.Xml;
 import org.xml.sax.ContentHandler;
 
 /**
@@ -40,7 +39,7 @@ abstract public class AbstractXmlTest extends XMLTestCase {
 		return handler;
 	}
 
-	protected static String createXmlContent(Xml xml) throws Exception {
+	protected static String createXmlContent(Base<?> xml) throws Exception {
 		StringWriter out = new StringWriter();
 		xml.build(out);
 		return out.toString();

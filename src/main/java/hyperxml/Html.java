@@ -5,7 +5,7 @@ package hyperxml;
  * 
  * @author krizz
  */
-public class Html extends Xml {
+public class Html extends Base<Html> {
 
 	public static final String fill = "100%";
 
@@ -390,13 +390,13 @@ public class Html extends Xml {
 	}
 
 	/**
-	 * Outputs a CSS style declaration as a {@link #text(String)} call.
+	 * Outputs a CSS style declaration as a {@link #text(Object...)} call.
 	 * 
 	 * @param selector           The selector
 	 * @param propertyValuePairs css property/value pairs such as
 	 *                           <code>["color", "red", "display", "none"]</code>
 	 */
-	public void css(String selector, Object... propertyValuePairs) {
+	public Html css(String selector, Object... propertyValuePairs) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(selector);
 		sb.append('{');
@@ -408,6 +408,7 @@ public class Html extends Xml {
 		}
 		sb.append('}');
 		text(sb.toString());
+		return this;
 	}
 
 	/**
@@ -416,8 +417,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void html(Object... params) {
+	public Html html(Object... params) {
 		$("html", params);
+		return this;
 	}
 
 	/**
@@ -426,8 +428,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void head(Object... params) {
+	public Html head(Object... params) {
 		$("head", params);
+		return this;
 	}
 
 	/**
@@ -436,8 +439,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void title(Object... params) {
+	public Html title(Object... params) {
 		$("title", params);
+		return this;
 	}
 
 	/**
@@ -446,8 +450,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void base(Object... params) {
+	public Html base(Object... params) {
 		$("base", params);
+		return this;
 	}
 
 	/**
@@ -456,8 +461,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void meta(Object... params) {
+	public Html meta(Object... params) {
 		$("meta", params);
+		return this;
 	}
 
 	/**
@@ -466,8 +472,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void link(Object... params) {
+	public Html link(Object... params) {
 		$("link", params);
+		return this;
 	}
 
 	/**
@@ -476,8 +483,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void style(Object... params) {
+	public Html style(Object... params) {
 		$("style", params);
+		return this;
 	}
 
 	/**
@@ -486,8 +494,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void script(Object... params) {
+	public Html script(Object... params) {
 		$("script", params);
+		return this;
 	}
 
 	/**
@@ -496,8 +505,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void noscript(Object... params) {
+	public Html noscript(Object... params) {
 		$("noscript", params);
+		return this;
 	}
 
 	/**
@@ -506,8 +516,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void body(Object... params) {
+	public Html body(Object... params) {
 		$("body", params);
+		return this;
 	}
 
 	/**
@@ -516,8 +527,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void div(Object... params) {
+	public Html div(Object... params) {
 		$("div", params);
+		return this;
 	}
 
 	/**
@@ -526,8 +538,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void p(Object... params) {
+	public Html p(Object... params) {
 		$("p", params);
+		return this;
 	}
 
 	/**
@@ -536,8 +549,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void h1(Object... params) {
+	public Html h1(Object... params) {
 		$("h1", params);
+		return this;
 	}
 
 	/**
@@ -546,8 +560,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void h2(Object... params) {
+	public Html h2(Object... params) {
 		$("h2", params);
+		return this;
 	}
 
 	/**
@@ -556,8 +571,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void h3(Object... params) {
+	public Html h3(Object... params) {
 		$("h3", params);
+		return this;
 	}
 
 	/**
@@ -566,8 +582,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void h4(Object... params) {
+	public Html h4(Object... params) {
 		$("h4", params);
+		return this;
 	}
 
 	/**
@@ -576,8 +593,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void h5(Object... params) {
+	public Html h5(Object... params) {
 		$("h5", params);
+		return this;
 	}
 
 	/**
@@ -586,8 +604,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void h6(Object... params) {
+	public Html h6(Object... params) {
 		$("h6", params);
+		return this;
 	}
 
 	/**
@@ -596,8 +615,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void ul(Object... params) {
+	public Html ul(Object... params) {
 		$("ul", params);
+		return this;
 	}
 
 	/**
@@ -606,8 +626,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void ol(Object... params) {
+	public Html ol(Object... params) {
 		$("ol", params);
+		return this;
 	}
 
 	/**
@@ -616,8 +637,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void li(Object... params) {
+	public Html li(Object... params) {
 		$("li", params);
+		return this;
 	}
 
 	/**
@@ -626,8 +648,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void dl(Object... params) {
+	public Html dl(Object... params) {
 		$("dl", params);
+		return this;
 	}
 
 	/**
@@ -636,8 +659,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void dt(Object... params) {
+	public Html dt(Object... params) {
 		$("dt", params);
+		return this;
 	}
 
 	/**
@@ -646,8 +670,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void dd(Object... params) {
+	public Html dd(Object... params) {
 		$("dd", params);
+		return this;
 	}
 
 	/**
@@ -656,8 +681,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void address(Object... params) {
+	public Html address(Object... params) {
 		$("address", params);
+		return this;
 	}
 
 	/**
@@ -666,8 +692,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void hr(Object... params) {
+	public Html hr(Object... params) {
 		$("hr", params);
+		return this;
 	}
 
 	/**
@@ -676,8 +703,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void pre(Object... params) {
+	public Html pre(Object... params) {
 		$("pre", params);
+		return this;
 	}
 
 	/**
@@ -686,8 +714,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void blockquote(Object... params) {
+	public Html blockquote(Object... params) {
 		$("blockquote", params);
+		return this;
 	}
 
 	/**
@@ -696,8 +725,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void ins(Object... params) {
+	public Html ins(Object... params) {
 		$("ins", params);
+		return this;
 	}
 
 	/**
@@ -706,8 +736,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void del(Object... params) {
+	public Html del(Object... params) {
 		$("del", params);
+		return this;
 	}
 
 	/**
@@ -716,8 +747,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void a(Object... params) {
+	public Html a(Object... params) {
 		$("a", params);
+		return this;
 	}
 
 	/**
@@ -726,8 +758,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void span(Object... params) {
+	public Html span(Object... params) {
 		$("span", params);
+		return this;
 	}
 
 	/**
@@ -736,8 +769,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void bdo(Object... params) {
+	public Html bdo(Object... params) {
 		$("bdo", params);
+		return this;
 	}
 
 	/**
@@ -746,8 +780,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void br(Object... params) {
+	public Html br(Object... params) {
 		$("br", params);
+		return this;
 	}
 
 	/**
@@ -756,8 +791,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void em(Object... params) {
+	public Html em(Object... params) {
 		$("em", params);
+		return this;
 	}
 
 	/**
@@ -766,8 +802,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void strong(Object... params) {
+	public Html strong(Object... params) {
 		$("strong", params);
+		return this;
 	}
 
 	/**
@@ -776,8 +813,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void dfn(Object... params) {
+	public Html dfn(Object... params) {
 		$("dfn", params);
+		return this;
 	}
 
 	/**
@@ -786,8 +824,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void code(Object... params) {
+	public Html code(Object... params) {
 		$("code", params);
+		return this;
 	}
 
 	/**
@@ -796,8 +835,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void samp(Object... params) {
+	public Html samp(Object... params) {
 		$("samp", params);
+		return this;
 	}
 
 	/**
@@ -806,8 +846,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void kbd(Object... params) {
+	public Html kbd(Object... params) {
 		$("kbd", params);
+		return this;
 	}
 
 	/**
@@ -816,8 +857,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void var(Object... params) {
+	public Html var(Object... params) {
 		$("var", params);
+		return this;
 	}
 
 	/**
@@ -826,8 +868,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void cite(Object... params) {
+	public Html cite(Object... params) {
 		$("cite", params);
+		return this;
 	}
 
 	/**
@@ -836,8 +879,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void abbr(Object... params) {
+	public Html abbr(Object... params) {
 		$("abbr", params);
+		return this;
 	}
 
 	/**
@@ -846,8 +890,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void acronym(Object... params) {
+	public Html acronym(Object... params) {
 		$("acronym", params);
+		return this;
 	}
 
 	/**
@@ -856,8 +901,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void q(Object... params) {
+	public Html q(Object... params) {
 		$("q", params);
+		return this;
 	}
 
 	/**
@@ -866,8 +912,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void sub(Object... params) {
+	public Html sub(Object... params) {
 		$("sub", params);
+		return this;
 	}
 
 	/**
@@ -876,8 +923,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void sup(Object... params) {
+	public Html sup(Object... params) {
 		$("sup", params);
+		return this;
 	}
 
 	/**
@@ -886,8 +934,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void tt(Object... params) {
+	public Html tt(Object... params) {
 		$("tt", params);
+		return this;
 	}
 
 	/**
@@ -896,8 +945,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void i(Object... params) {
+	public Html i(Object... params) {
 		$("i", params);
+		return this;
 	}
 
 	/**
@@ -906,8 +956,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void b(Object... params) {
+	public Html b(Object... params) {
 		$("b", params);
+		return this;
 	}
 
 	/**
@@ -916,8 +967,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void big(Object... params) {
+	public Html big(Object... params) {
 		$("big", params);
+		return this;
 	}
 
 	/**
@@ -926,8 +978,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void small(Object... params) {
+	public Html small(Object... params) {
 		$("small", params);
+		return this;
 	}
 
 	/**
@@ -936,8 +989,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void object(Object... params) {
+	public Html object(Object... params) {
 		$("object", params);
+		return this;
 	}
 
 	/**
@@ -946,8 +1000,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void param(Object... params) {
+	public Html param(Object... params) {
 		$("param", params);
+		return this;
 	}
 
 	/**
@@ -956,8 +1011,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void img(Object... params) {
+	public Html img(Object... params) {
 		$("img", params);
+		return this;
 	}
 
 	/**
@@ -966,8 +1022,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void map(Object... params) {
+	public Html map(Object... params) {
 		$("map", params);
+		return this;
 	}
 
 	/**
@@ -976,8 +1033,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void area(Object... params) {
+	public Html area(Object... params) {
 		$("area", params);
+		return this;
 	}
 
 	/**
@@ -986,8 +1044,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void form(Object... params) {
+	public Html form(Object... params) {
 		$("form", params);
+		return this;
 	}
 
 	/**
@@ -996,8 +1055,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void label(Object... params) {
+	public Html label(Object... params) {
 		$("label", params);
+		return this;
 	}
 
 	/**
@@ -1006,8 +1066,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void input(Object... params) {
+	public Html input(Object... params) {
 		$("input", params);
+		return this;
 	}
 
 	/**
@@ -1016,8 +1077,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void select(Object... params) {
+	public Html select(Object... params) {
 		$("select", params);
+		return this;
 	}
 
 	/**
@@ -1026,8 +1088,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void optgroup(Object... params) {
+	public Html optgroup(Object... params) {
 		$("optgroup", params);
+		return this;
 	}
 
 	/**
@@ -1036,8 +1099,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void option(Object... params) {
+	public Html option(Object... params) {
 		$("option", params);
+		return this;
 	}
 
 	/**
@@ -1046,8 +1110,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void textarea(Object... params) {
+	public Html textarea(Object... params) {
 		$("textarea", params);
+		return this;
 	}
 
 	/**
@@ -1056,8 +1121,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void fieldset(Object... params) {
+	public Html fieldset(Object... params) {
 		$("fieldset", params);
+		return this;
 	}
 
 	/**
@@ -1066,8 +1132,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void legend(Object... params) {
+	public Html legend(Object... params) {
 		$("legend", params);
+		return this;
 	}
 
 	/**
@@ -1076,8 +1143,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void button(Object... params) {
+	public Html button(Object... params) {
 		$("button", params);
+		return this;
 	}
 
 	/**
@@ -1086,8 +1154,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void table(Object... params) {
+	public Html table(Object... params) {
 		$("table", params);
+		return this;
 	}
 
 	/**
@@ -1096,8 +1165,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void caption(Object... params) {
+	public Html caption(Object... params) {
 		$("caption", params);
+		return this;
 	}
 
 	/**
@@ -1106,8 +1176,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void thead(Object... params) {
+	public Html thead(Object... params) {
 		$("thead", params);
+		return this;
 	}
 
 	/**
@@ -1116,8 +1187,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void tfoot(Object... params) {
+	public Html tfoot(Object... params) {
 		$("tfoot", params);
+		return this;
 	}
 
 	/**
@@ -1126,8 +1198,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void tbody(Object... params) {
+	public Html tbody(Object... params) {
 		$("tbody", params);
+		return this;
 	}
 
 	/**
@@ -1136,8 +1209,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void colgroup(Object... params) {
+	public Html colgroup(Object... params) {
 		$("colgroup", params);
+		return this;
 	}
 
 	/**
@@ -1146,8 +1220,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void col(Object... params) {
+	public Html col(Object... params) {
 		$("col", params);
+		return this;
 	}
 
 	/**
@@ -1156,8 +1231,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void tr(Object... params) {
+	public Html tr(Object... params) {
 		$("tr", params);
+		return this;
 	}
 
 	/**
@@ -1166,8 +1242,9 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void th(Object... params) {
+	public Html th(Object... params) {
 		$("th", params);
+		return this;
 	}
 
 	/**
@@ -1176,7 +1253,8 @@ public class Html extends Xml {
 	 * @param params Parameters
 	 * @see Xml#$(String, Object...)
 	 */
-	public void td(Object... params) {
+	public Html td(Object... params) {
 		$("td", params);
+		return this;
 	}
 }
