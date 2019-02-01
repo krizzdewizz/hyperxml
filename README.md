@@ -1,3 +1,5 @@
+deprecated - use (hyperml)[https://github.com/krizzdewizz/hyperml] instead
+
 # hyperxml
 Hyper simple and light weight XML/HTML builder using only the method `$()`.
 
